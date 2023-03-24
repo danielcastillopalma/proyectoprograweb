@@ -1,3 +1,7 @@
+*{
+  margin:0;
+  padding: 0;
+}
 body {
   background: #c5c3c6;
 }
@@ -10,7 +14,14 @@ body {
 .float-izq {
   float: right;
 margin-right: 0%;
-  
+
+}
+header{
+  margin:0;
+}
+#carrusel{
+width: 100%;
+padding: 0%;
 }
 #btnLogin{
   position: absolute;
@@ -28,3 +39,5 @@ margin-right: 0%;
 .anchomenu{
   width: 20em!important; 
 }
+
+.row { margin-left: 0; margin-right: 0; }
