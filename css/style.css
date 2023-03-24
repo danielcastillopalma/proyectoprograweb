@@ -23,5 +23,8 @@ margin-right: 0%;
 }
 .dropstart{
   z-index:999;
-  max-width: 100%!important;  
+   
+}
+.anchomenu{
+  width: 20em!important; 
 }
