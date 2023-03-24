@@ -16,3 +16,12 @@ margin-right: 0%;
   position: absolute;
   right: 2%;
 }
+#loginFoto{
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+.dropstart{
+  z-index:999;
+  max-width: 100%!important;  
+}
