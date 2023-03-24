@@ -1,9 +1,18 @@
 body {
   background: #c5c3c6;
 }
-.navbar{
-  background-color: #1985A1; 
+.navbar {
+  background-color: #1985a1;
 }
-.btnLogin{
-  float:right;
+.logo-padding {
+  padding-left: 1%;
+}
+.float-izq {
+  float: right;
+margin-right: 0%;
+  
+}
+#btnLogin{
+  position: absolute;
+  right: 2%;
 }
