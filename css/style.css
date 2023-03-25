@@ -24,8 +24,12 @@ header {
 #carrusel {
   width: 100%;
   padding: 0%;
-  position: fixed;
+  /* position: fixed elimina el scroll vertical para la pantalla inicial con el carrusel*/
+  position: static;
   
+}
+.card{
+  margin:0 auto;
 }
 #btnLogin {
   position: absolute;
