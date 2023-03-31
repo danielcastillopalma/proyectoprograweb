@@ -4,7 +4,7 @@
 }
 
 body {
-  background: #93BFCF;
+  background: #EEE9DA;
   
 }
 .navbar {
@@ -27,6 +27,7 @@ header {
   
   /* position: fixed elimina el scroll vertical para la pantalla inicial con el carrusel*/
   position: static;
+  border:black;
   
   
 }
@@ -79,4 +80,11 @@ a:link,a:visited{
 }
 .menucustom:hover{
   background-color:green;
+}
+.h1tienda{
+  display: flex;
+  align-items: center;
+  text-align: center;
+  background-color: #93BFCF;
+  margin-bottom: 2.5%;
 }
