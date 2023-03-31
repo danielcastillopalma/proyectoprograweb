@@ -17,16 +17,12 @@ body {
 .navbar {
   background-color: #1985a1;
 }
-.logo-padding {
-  padding-left: 1%;
-}
+
 .float-izq {
   float: right;
   margin-right: 0%;
 }
-header {
-  margin: 0;
-}
+
 #carrusel {
   padding: 2.5% 20% 2.5% 20%;
 
@@ -37,65 +33,10 @@ header {
 .card {
   margin: 0 auto;
 }
-#btnLogin {
-  position: absolute;
-  right: 2%;
-}
-#loginFoto {
-  object-fit: cover;
-  width: 100%;
-  height: 100%;
-}
-.dropstart {
-  z-index: 999;
-}
-.anchomenu {
-  width: 20em !important;
-}
-
 .row {
   margin-left: 0;
   margin-right: 0;
 }
-#menucustom {
-  height: 7vh;
-  display: flex;
-  align-items: center;
-  background-color: #6096b4;
-  width: 100%;
-  padding: 0;
-}
-#fotologo {
-  width: 15%;
-}
-a:link,
-a:visited {
-  text-decoration: none;
-  color:black
-}
-.menucustom {
-  height: 100%;
-  display: flex;
-  align-items: center;
-  padding: 0;
-  justify-content: center;
-}
-.menulogo {
-  display: flex;
-  align-items: center;
-  padding: 0;
-  font-weight:600;
-}
-.alogo{
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-}
-.menucustom:hover {
-  background-color: #93bfcf;
-}
-
-
 .h1tienda {
   display: flex;
   align-items: center;
@@ -106,3 +47,100 @@ a:visited {
 #carrito{
   width: 20%;
 }
+
+/*
+CONFIGURACIONES NAVBAR
+*/
+
+
+nav{
+  background: #6096b4;
+  height: 80px;
+  width: 100%;
+}
+.enlace{
+  position: absolute;
+  padding: 1.5%;
+}
+.logo{
+  height: 40px;
+}
+nav ul{
+  float: right;
+  margin-right: 1%;
+}
+nav ul li{
+  display: inline-block;
+  line-height: 80px;
+  margin: 0 5px;
+}
+nav ul li a{
+  color: #fff;
+  font-size: 18px;
+  padding: 25px 13px;
+  border-radius: 3px;
+  text-transform: uppercase;
+}
+li a.active, li a:hover{
+  background: #93bfcf;
+  transition: .5s;
+}
+.checkbtn{
+  font-size: 30px;
+  color: #fff;
+  float: right;
+  line-height: 80px;
+  margin-right: 40px;
+  cursor: pointer;
+  display: none;
+}
+#check{
+  display: none;
+}
+section{
+  background: url(fondo.jpg) no-repeat;
+  background-size: cover;
+  background-position: center center;
+  height: calc(100vh - 80px);
+}
+
+@media (max-width: 952px){
+  .enlace{
+      padding-left: 20px;
+  }
+  nav ul li a{
+      font-size: 16px;
+  }
+}
+
+@media (max-width: 858px){
+  .checkbtn{
+      display: block;
+  }
+  ul{
+      position: fixed;
+      width: 100%;
+      height: 100vh;
+      background:  #93bfcf;
+      top: 80px;
+      left: -100%;
+      text-align: center;
+      transition: all .5s;
+  }
+  nav ul li{
+      display: block;
+      margin: 50px 0;
+      line-height: 30px;
+  }
+  nav ul li a{
+      font-size: 20px;
+  }
+  li a:hover, li a.active{
+      background: none;
+      color: red;
+  }
+  #check:checked ~ ul{
+      left:0;
+  }
+}
+
