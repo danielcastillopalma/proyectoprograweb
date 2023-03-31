@@ -51,3 +51,13 @@ header {
   margin-left: 0;
   margin-right: 0;
 }
+#menucustom{
+  padding: 1%;
+}
+#fotologo{
+  width: 15%;
+}
+a:link{
+  text-decoration: none;
+  color: #c5c3c6;
+}
