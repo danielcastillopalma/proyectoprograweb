@@ -71,6 +71,7 @@ header {
 a:link,
 a:visited {
   text-decoration: none;
+  color:black
 }
 .menucustom {
   height: 100%;
@@ -84,11 +85,11 @@ a:visited {
   align-items: center;
   justify-content: space-evenly;
   padding: 0;
-  color: black;
 }
 .menucustom:hover {
   background-color: #93bfcf;
 }
+
 
 .h1tienda {
   display: flex;
@@ -96,4 +97,7 @@ a:visited {
   text-align: center;
   background-color: #bdcdd6;
   margin-bottom: 2.5%;
+}
+#carrito{
+  width: 20%;
 }
