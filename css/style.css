@@ -4,7 +4,7 @@
 }
 
 body {
-  background: #c5c3c6;
+  background: #93BFCF;
   
 }
 .navbar {
@@ -21,9 +21,9 @@ body {
 header {
   margin: 0;
 }
-#carrusel {  
-  padding-left: 20%;
-  padding-right: 20%; 
+#carrusel { 
+
+  padding: 2.5% 20% 2.5% 20%;
   
   /* position: fixed elimina el scroll vertical para la pantalla inicial con el carrusel*/
   position: static;
@@ -57,6 +57,7 @@ header {
   height: 7vh;
   display: flex;
   align-items: center;
+  background-color: #6096B4;
   
 }
 #fotologo{
