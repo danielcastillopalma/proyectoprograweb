@@ -81,10 +81,15 @@ a:visited {
   justify-content: center;
 }
 .menulogo {
-  display: inline-flex;
+  display: flex;
   align-items: center;
-  justify-content: space-evenly;
   padding: 0;
+  font-weight:600;
+}
+.alogo{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
 }
 .menucustom:hover {
   background-color: #93bfcf;
