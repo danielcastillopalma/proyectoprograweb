@@ -21,11 +21,13 @@ body {
 header {
   margin: 0;
 }
-#carrusel {
-  width: 100%;
-  padding: 0%;
+#carrusel {  
+  padding-left: 20%;
+  padding-right: 20%; 
+  
   /* position: fixed elimina el scroll vertical para la pantalla inicial con el carrusel*/
   position: static;
+  
   
 }
 .card{
