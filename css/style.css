@@ -116,6 +116,9 @@ li a:hover {
   background-color: #93bfcf;
   padding: 1%;
 }
+.contacto{
+  padding:0 10%;
+}
 .footer {
   background-color: #1985a1;
   position: static;
