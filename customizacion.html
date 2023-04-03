@@ -48,11 +48,623 @@
               <li></li>
               <li></li>
               <li></li>
-              <li><a href=""><i class="fa-solid fa-cart-shopping"></i></a></li>
+              
+              <li><a class="botoncarro" data-bs-toggle="offcanvas" href="#offcanvasRight" role="button" aria-controls="offcanvasRight">
+                <i class="fa-solid fa-cart-shopping"></i>
+              </a></li>
             </ul>
+          </nav>
+          
+          <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+            <div class="offcanvas-header">
+              <h5 class="offcanvas-title" id="offcanvasRightLabel">Carro de compras</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+              <p>Aquí irá una imagen y descripción de los productos a comprar</p>
+              <button class="btn btn-primary"> Boton</button>
+            </div>
+          </div>
+    
         </nav>
-<h1>sitio en construcción</h1>
-<h1>customizacion</h1>
+        <section>
+          <section aria-label="breadcrumb">
+            <ol class="breadcrumb filtro">
+              <li class="breadcrumb-item active" aria-current="page"
+              data-bs-toggle="offcanvas"
+            data-bs-target="#offcanvasExample"
+            aria-controls="offcanvasExample">Filtro</li>
+            </ol>
+            <div class="row h1tienda"><h1>Customización</h1></div>
+            <div class="row">
+              <div class="col-lg-3">
+                <div class="card" style="width: 18rem">
+                  <img src="/img/imgitem.jpg" class="card-img-top" alt="..." />
+                  <div class="card-body">
+                    <h5 class="card-title">Producto generico</h5>
+                    
+                    <a href="#" class="btn btn-primary">comprar</a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-3">
+                <div class="card" style="width: 18rem">
+                  <img src="/img/imgitem.jpg" class="card-img-top" alt="..." />
+                  <div class="card-body">
+                    <h5 class="card-title">Producto generico</h5>
+                    
+                    <a href="#" class="btn btn-primary">comprar</a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-3">
+                <div class="card" style="width: 18rem">
+                  <img src="/img/imgitem.jpg" class="card-img-top" alt="..." />
+                  <div class="card-body">
+                    <h5 class="card-title">Producto generico</h5>
+                    
+                    <a href="#" class="btn btn-primary">comprar</a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-3">
+                <div class="card" style="width: 18rem">
+                  <img src="/img/imgitem.jpg" class="card-img-top" alt="..." />
+                  <div class="card-body">
+                    <h5 class="card-title">Producto generico</h5>
+                    
+                    <a href="#" class="btn btn-primary">comprar</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-3">
+                <div class="card" style="width: 18rem">
+                  <img src="/img/imgitem.jpg" class="card-img-top" alt="..." />
+                  <div class="card-body">
+                    <h5 class="card-title">Producto generico</h5>
+                    
+                    <a href="#" class="btn btn-primary">comprar</a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-3">
+                <div class="card" style="width: 18rem">
+                  <img src="/img/imgitem.jpg" class="card-img-top" alt="..." />
+                  <div class="card-body">
+                    <h5 class="card-title">Producto generico</h5>
+                    
+                    <a href="#" class="btn btn-primary">comprar</a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-3">
+                <div class="card" style="width: 18rem">
+                  <img src="/img/imgitem.jpg" class="card-img-top" alt="..." />
+                  <div class="card-body">
+                    <h5 class="card-title">Producto generico</h5>
+                    
+                    <a href="#" class="btn btn-primary">comprar</a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-3">
+                <div class="card" style="width: 18rem">
+                  <img src="/img/imgitem.jpg" class="card-img-top" alt="..." />
+                  <div class="card-body">
+                    <h5 class="card-title">Producto generico</h5>
+                    
+                    <a href="#" class="btn btn-primary">comprar</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+          
+    
+          <div
+            class="offcanvas offcanvas-start"
+            tabindex="-1"
+            id="offcanvasExample"
+            aria-labelledby="offcanvasExampleLabel"
+          >
+            <div class="offcanvas-header">
+              <h5 class="offcanvas-title" id="offcanvasExampleLabel">
+                ¿Qué estás buscando?
+              </h5>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="offcanvas"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="offcanvas-body">
+              <!--
+                Items Filtro
+              -->
+              <div class="accordion" id="accordionExample">
+                <div class="accordion-item">
+                  <h2 class="accordion-header">
+                    <button
+                      class="accordion-button collapsed"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#collapseOne"
+                      aria-expanded="false"
+                      aria-controls="collapseOne"
+                    >
+                      Cambio de aceite
+                    </button>
+                  </h2>
+                  <div
+                    id="collapseOne"
+                    class="accordion-collapse collapse"
+                    data-bs-parent="#accordionExample"
+                  >
+                    <div class="accordion-body">
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="filtroAceite">
+                        <label class="form-check-label" for="filtroAceite">
+                          Filtro de Aceite
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="varillaAceite">
+                        <label class="form-check-label" for="varillaAceite">
+                          Varilla de Aceite
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+    
+                <div class="accordion-item">
+                  <h2 class="accordion-header">
+                    <button
+                      class="accordion-button collapsed"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#collapseTwo"
+                      aria-expanded="false"
+                      aria-controls="collapseTwo"
+                    >
+                      Embragues y Transmisión
+                    </button>
+                  </h2>
+                  <div
+                    id="collapseTwo"
+                    class="accordion-collapse collapse"
+                    data-bs-parent="#accordionExample"
+                  >
+                    <div class="accordion-body">
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="filtroAceite">
+                        <label class="form-check-label" for="filtroAceite">
+                          Bomba de Embrague
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="varillaAceite">
+                        <label class="form-check-label" for="varillaAceite">
+                          Cilindro de Embrague
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="filtroAceite">
+                        <label class="form-check-label" for="filtroAceite">
+                          Crucetas de Cardan
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="varillaAceite">
+                        <label class="form-check-label" for="varillaAceite">
+                          Disco de Embrague
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="filtroAceite">
+                        <label class="form-check-label" for="filtroAceite">
+                          Filtro Caja de Cambios
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="varillaAceite">
+                        <label class="form-check-label" for="varillaAceite">
+                          Fuelles de Homocinética
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="filtroAceite">
+                        <label class="form-check-label" for="filtroAceite">
+                          Horquilla de Embrague
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="varillaAceite">
+                        <label class="form-check-label" for="varillaAceite">
+                          Kit de Embrague
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="filtroAceite">
+                        <label class="form-check-label" for="filtroAceite">
+                          Kit de Embrague y Despiece
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="varillaAceite">
+                        <label class="form-check-label" for="varillaAceite">
+                          Piola Selector de Cambios
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="filtroAceite">
+                        <label class="form-check-label" for="filtroAceite">
+                          Piola de Embrague
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="varillaAceite">
+                        <label class="form-check-label" for="varillaAceite">
+                          Piola de Velocímetro
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="filtroAceite">
+                        <label class="form-check-label" for="filtroAceite">
+                          Prensa de Embrague
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="varillaAceite">
+                        <label class="form-check-label" for="varillaAceite">
+                          Punta de Homocinética
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="filtroAceite">
+                        <label class="form-check-label" for="filtroAceite">                      
+                          Reparación Bomba de Embrague
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="varillaAceite">
+                        <label class="form-check-label" for="varillaAceite">
+                          Reparación Cilindro de Embrague
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="filtroAceite">
+                        <label class="form-check-label" for="filtroAceite">
+                          Reparación Palanca de Cambio
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="varillaAceite">
+                        <label class="form-check-label" for="varillaAceite">
+                          Reten de Caja de Cambio
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="filtroAceite">
+                        <label class="form-check-label" for="filtroAceite">
+                          Rodamiento de Empuje
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="varillaAceite">
+                        <label class="form-check-label" for="varillaAceite">
+                          Volante de Embrague
+                        </label>
+                      </div>
+    
+    
+                    </div>
+                  </div>
+                </div>
+    
+                <div class="accordion-item">
+                  <h2 class="accordion-header">
+                    <button
+                      class="accordion-button collapsed"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#collapseThree"
+                      aria-expanded="false"
+                      aria-controls="collapseThree"
+                    >
+                      Motor
+                    </button>
+                  </h2>
+                  <div
+                    id="collapseThree"
+                    class="accordion-collapse collapse"
+                    data-bs-parent="#accordionExample"
+                  >
+                    <div class="accordion-body"></div>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <h2 class="accordion-header">
+                    <button
+                      class="accordion-button collapsed"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#collapsefour"
+                      aria-expanded="false"
+                      aria-controls="collapsefour"
+                    >
+                      Sistema de Escape
+                    </button>
+                  </h2>
+                  <div
+                    id="collapsefour"
+                    class="accordion-collapse collapse"
+                    data-bs-parent="#accordionExample"
+                  >
+                    <div class="accordion-body"></div>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <h2 class="accordion-header">
+                    <button
+                      class="accordion-button collapsed"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#collapseFive"
+                      aria-expanded="false"
+                      aria-controls="collapseFive"
+                    >
+                      Sistema de alimentación
+                    </button>
+                  </h2>
+                  <div
+                    id="collapseFive"
+                    class="accordion-collapse collapse"
+                    data-bs-parent="#accordionExample"
+                  >
+                    <div class="accordion-body"></div>
+                  </div>
+                  <div class="accordion-item">
+                    <h2 class="accordion-header">
+                      <button
+                        class="accordion-button collapsed"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#collapseSix"
+                        aria-expanded="false"
+                        aria-controls="collapseSix"
+                      >
+                        Carrocería
+                      </button>
+                    </h2>
+                    <div
+                      id="collapseSix"
+                      class="accordion-collapse collapse"
+                      data-bs-parent="#accordionExample"
+                    >
+                      <div class="accordion-body"></div>
+                    </div>
+                  </div>
+                  <div class="accordion-item">
+                    <h2 class="accordion-header">
+                      <button
+                        class="accordion-button collapsed"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#collapseSeven"
+                        aria-expanded="false"
+                        aria-controls="collapseSeven"
+                      >
+                        Suspensión y Dirección
+                      </button>
+                    </h2>
+                    <div
+                      id="collapseSeven"
+                      class="accordion-collapse collapse"
+                      data-bs-parent="#accordionExample"
+                    >
+                      <div class="accordion-body"></div>
+                    </div>
+                  </div>
+                  <div class="accordion-item">
+                    <h2 class="accordion-header">
+                      <button
+                        class="accordion-button collapsed"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#collapseEight"
+                        aria-expanded="false"
+                        aria-controls="collapseEight"
+                      >
+                        Sensores y Eléctrica
+                      </button>
+                    </h2>
+                    <div
+                      id="collapseEight"
+                      class="accordion-collapse collapse"
+                      data-bs-parent="#accordionExample"
+                    >
+                      <div class="accordion-body"></div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                  <h2 class="accordion-header">
+                    <button
+                      class="accordion-button collapsed"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#collapseNine"
+                      aria-expanded="false"
+                      aria-controls="collapseNine"
+                    >
+                      Motor de Partida y Alternador
+                    </button>
+                  </h2>
+                  <div
+                    id="collapseNine"
+                    class="accordion-collapse collapse"
+                    data-bs-parent="#accordionExample"
+                  >
+                    <div class="accordion-body"></div>
+                  </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#collapseTen"
+                    aria-expanded="false"
+                    aria-controls="collapseTen"
+                  >
+                    Rodamiento y Retenes
+                  </button>
+                </h2>
+                <div
+                  id="collapseTen"
+                  class="accordion-collapse collapse"
+                  data-bs-parent="#accordionExample"
+                >
+                  <div class="accordion-body"></div>
+                </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button
+                  class="accordion-button collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#collapseEleven"
+                  aria-expanded="false"
+                  aria-controls="collapseEleven"
+                >
+                  Distribución
+                </button>
+              </h2>
+              <div
+                id="collapseEleven"
+                class="accordion-collapse collapse"
+                data-bs-parent="#accordionExample"
+              >
+                <div class="accordion-body"></div>
+              </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button
+                class="accordion-button collapsed"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#collapseTwelve"
+                aria-expanded="false"
+                aria-controls="collapseTwelve"
+              >
+                Refrigeración y Calefacción
+              </button>
+            </h2>
+            <div
+              id="collapseTwelve"
+              class="accordion-collapse collapse"
+              data-bs-parent="#accordionExample"
+            >
+              <div class="accordion-body"></div>
+            </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button
+              class="accordion-button collapsed"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#collapse13"
+              aria-expanded="false"
+              aria-controls="collapse13"
+            >
+              Filtros
+            </button>
+          </h2>
+          <div
+            id="collapse13"
+            class="accordion-collapse collapse"
+            data-bs-parent="#accordionExample"
+          >
+            <div class="accordion-body"></div>
+          </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button
+            class="accordion-button collapsed"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#collapse14"
+            aria-expanded="false"
+            aria-controls="collapse14"
+          >
+            Frenos
+          </button>
+        </h2>
+        <div
+          id="collapse14"
+          class="accordion-collapse collapse"
+          data-bs-parent="#accordionExample"
+        >
+          <div class="accordion-body"></div>
+        </div>
+    </div>
+    <div class="accordion-item">
+      <h2 class="accordion-header">
+        <button
+          class="accordion-button collapsed"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#collapse15"
+          aria-expanded="false"
+          aria-controls="collapse15"
+        >
+          Afinamiento y Encendido
+        </button>
+      </h2>
+      <div
+        id="collapse15"
+        class="accordion-collapse collapse"
+        data-bs-parent="#accordionExample"
+      >
+        <div class="accordion-body"></div>
+      </div>
+    </div>
+    <div class="accordion-item">
+      <h2 class="accordion-header">
+        <button
+          class="accordion-button collapsed"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#collapse16"
+          aria-expanded="false"
+          aria-controls="collapse16"
+        >
+          Correa de Accesorios y Servicios
+        </button>
+      </h2>
+      <div
+        id="collapse16"
+        class="accordion-collapse collapse"
+        data-bs-parent="#accordionExample"
+      >
+        <div class="accordion-body"></div>
+      </div>
+    </div>
+                
+              </div>
+              
+              <!---->
+            </div>
+          </div>
+        </section>
     <!--
             Footer
         -->

@@ -47,8 +47,24 @@
           <li></li>
           <li></li>
           <li></li>
-          <li><a href=""><i class="fa-solid fa-cart-shopping"></i></a></li>
+          
+          <li><a class="botoncarro" data-bs-toggle="offcanvas" href="#offcanvasRight" role="button" aria-controls="offcanvasRight">
+            <i class="fa-solid fa-cart-shopping"></i>
+          </a></li>
         </ul>
+      </nav>
+      
+      <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="offcanvasRightLabel">Carro de compras</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+          <p>Aquí irá una imagen y descripción de los productos a comprar</p>
+          <button class="btn btn-primary"> Boton</button>
+        </div>
+      </div>
+
     </nav>
     <h1>sitio en construcción</h1>
     <h1>servicios</h1>

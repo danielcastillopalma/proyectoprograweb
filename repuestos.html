@@ -35,13 +35,11 @@
       </a>
 
       <ul>
-        <li>
-          <a href="index.html"><i class="fa-solid fa-house"></i></a>
-        </li>
+        <li><a href="index.html"><i class="fa-solid fa-house"></i></a></li>
         <li><a href="/repuestos.html">Repuestos</a></li>
         <li><a href="/customizacion.html">Customización</a></li>
         <li><a href="/servicios.html">Servicios</a></li>
-        <li><a href="#">Contacto</a></li>
+        <li><a href="#">Contacto</a></li>          
         <li></li>
         <li></li>
         <li></li>
@@ -53,24 +51,124 @@
         <li></li>
         <li></li>
         <li></li>
-        <li>
-          <a href=""><i class="fa-solid fa-cart-shopping"></i></a>
-        </li>
+        
+        <li><a class="botoncarro" data-bs-toggle="offcanvas" href="#offcanvasRight" role="button" aria-controls="offcanvasRight">
+          <i class="fa-solid fa-cart-shopping"></i>
+        </a></li>
       </ul>
+    </nav>
+    
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasRightLabel">Carro de compras</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <p>Aquí irá una imagen y descripción de los productos a comprar</p>
+        <button class="btn btn-primary"> Boton</button>
+      </div>
+    </div>
+
     </nav>
     <!--
       Configuración menu Filtro
     -->
+    
     <section>
-      <button
-        class="btn btn-primary"
-        type="button"
-        data-bs-toggle="offcanvas"
+      <section aria-label="breadcrumb">
+        <ol class="breadcrumb filtro">
+          <li class="breadcrumb-item active" aria-current="page"
+          data-bs-toggle="offcanvas"
         data-bs-target="#offcanvasExample"
-        aria-controls="offcanvasExample"
-      >
-        Filtro
-      </button>
+        aria-controls="offcanvasExample">Filtro</li>
+        </ol>
+        <div class="row h1tienda"><h1>Repuestos</h1></div>
+        <div class="row">
+          <div class="col-lg-3">
+            <div class="card" style="width: 18rem">
+              <img src="/img/imgitem.jpg" class="card-img-top" alt="..." />
+              <div class="card-body">
+                <h5 class="card-title">Producto generico</h5>
+                
+                <a href="#" class="btn btn-primary">comprar</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3">
+            <div class="card" style="width: 18rem">
+              <img src="/img/imgitem.jpg" class="card-img-top" alt="..." />
+              <div class="card-body">
+                <h5 class="card-title">Producto generico</h5>
+                
+                <a href="#" class="btn btn-primary">comprar</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3">
+            <div class="card" style="width: 18rem">
+              <img src="/img/imgitem.jpg" class="card-img-top" alt="..." />
+              <div class="card-body">
+                <h5 class="card-title">Producto generico</h5>
+                
+                <a href="#" class="btn btn-primary">comprar</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3">
+            <div class="card" style="width: 18rem">
+              <img src="/img/imgitem.jpg" class="card-img-top" alt="..." />
+              <div class="card-body">
+                <h5 class="card-title">Producto generico</h5>
+                
+                <a href="#" class="btn btn-primary">comprar</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-3">
+            <div class="card" style="width: 18rem">
+              <img src="/img/imgitem.jpg" class="card-img-top" alt="..." />
+              <div class="card-body">
+                <h5 class="card-title">Producto generico</h5>
+                
+                <a href="#" class="btn btn-primary">comprar</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3">
+            <div class="card" style="width: 18rem">
+              <img src="/img/imgitem.jpg" class="card-img-top" alt="..." />
+              <div class="card-body">
+                <h5 class="card-title">Producto generico</h5>
+                
+                <a href="#" class="btn btn-primary">comprar</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3">
+            <div class="card" style="width: 18rem">
+              <img src="/img/imgitem.jpg" class="card-img-top" alt="..." />
+              <div class="card-body">
+                <h5 class="card-title">Producto generico</h5>
+                
+                <a href="#" class="btn btn-primary">comprar</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3">
+            <div class="card" style="width: 18rem">
+              <img src="/img/imgitem.jpg" class="card-img-top" alt="..." />
+              <div class="card-body">
+                <h5 class="card-title">Producto generico</h5>
+                
+                <a href="#" class="btn btn-primary">comprar</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      
 
       <div
         class="offcanvas offcanvas-start"
