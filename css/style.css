@@ -3,20 +3,28 @@
   padding: 0;
   /*
 paleta de colores custom*/
-  c: #6096b4;
+  c:
   c: #93bfcf;
   c: #bdcdd6;
   c: #eee9da;
   /*
 */
+
+}
+.cprimario{
+  background-color:  #6096b4;
+}
+.csecundario{
+  background-color:  #93bfcf;
+}
+.cterciario{
+  background-color:  #bdcdd6;
+}
+.ccuarto{
+  background-color:  #eee9da;
 }
 
-body {
-  background: #eee9da;
-}
-.navbar {
-  background-color: #1985a1;
-}
+
 
 .float-izq {
   float: right;
@@ -46,7 +54,7 @@ body {
   display: flex;
   align-items: center;
   text-align: center;
-  background-color: #bdcdd6;
+  
   margin-bottom: 2.5%;
 }
 #carrito {
@@ -68,7 +76,7 @@ CONFIGURACIONES NAVBAR
 */
 
 nav {
-  background: #6096b4;
+ 
   height: 80px;
   width: 100%;
 }
@@ -114,14 +122,14 @@ li a:hover {
   display: none;
 }
 #ProductosDestacados {
-  background-color: #93bfcf;
+ 
   padding: 1%;
 }
 .contacto{
   padding:0 10%;
 }
 .footer {
-  background-color: #1985a1;
+ 
   position:relative;
   left: 0;
   bottom: 0;
@@ -158,7 +166,7 @@ section {
     position: fixed;
     width: 100%;
     height: 100vh;
-    background: #93bfcf;
+    
     top: 80px;
     left: -100%;
     text-align: center;
