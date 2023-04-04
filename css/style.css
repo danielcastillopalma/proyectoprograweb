@@ -24,14 +24,27 @@ footer {
 }
 ul {
   list-style: none;
+  padding: 0;
 }
 a {
   text-decoration: none;
 }
+
 /*
 CONFIGURACIÓN DE CLASES
 */
-
+.imglogo{
+  justify-content: center;
+  align-items: center;
+ 
+}
+.flex-container{
+  justify-content: space-between;
+  padding: 0;
+  margin: 0;
+  margin-top: 10%;
+  display: flex;
+}
 .container-fluid {
   padding: 0;
   bottom: 0;
@@ -71,22 +84,25 @@ CONFIGURACIÓN DE CLASES
 PALETA DE COLORES
 */
 .clink {
-  color: #474642;
+  color: #C5C3C6;
 }
 .ctitulo {
-  color: #535a5e;
+  color: #DCDCDD;
 }
 .cprimario {
-  background-color: #6096b4;
+  background-color: #00747C;
 }
 .csecundario {
-  background-color: #93bfcf;
+  background-color: #00BBC9;
 }
 .cterciario {
-  background-color: #bdcdd6;
+  background-color: #878787;
 }
 .ccuarto {
-  background-color: #eee9da;
+  background-color: #CACACA;
+}
+.ccontrast{
+  background-color: #202022;
 }
 
 /*
@@ -143,7 +159,8 @@ nav ul li a {
 }
 li a.active,
 li a:hover {
-  background: #93bfcf;
+  background: #00BBC9;
+  color:#202022;
   transition: 0.5s;
 }
 .checkbtn {
