@@ -10,17 +10,15 @@ html {
 }
 body {
   min-height: 100vh;
-  position: relative;
-  padding-bottom: 3em;
+  display: flex;
+  flex-direction: column;
 }
 
 /*
 CONFIGURACIÓN DE ELEMENTOS
 */
 footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
+margin-top: auto;
 }
 ul {
   list-style: none;
@@ -33,12 +31,31 @@ a {
 /*
 CONFIGURACIÓN DE CLASES
 */
-.imglogo{
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+  display: flex;
   justify-content: center;
   align-items: center;
- 
 }
-.flex-container{
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.imglogo {
+  justify-content: center;
+  align-items: center;
+}
+.flex-container {
   justify-content: space-between;
   padding: 0;
   margin: 0;
@@ -80,28 +97,40 @@ CONFIGURACIÓN DE CLASES
 .contacto {
   padding: 0 10%;
 }
+.card-image{
+  position: relative;
+  height: 150px;
+  width: 150px;
+}
+.card-image .card-img{
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
 /*
 PALETA DE COLORES
 */
 .clink {
-  color: #C5C3C6;
+  color: #c5c3c6;
 }
 .ctitulo {
-  color: #DCDCDD;
+  color: #dcdcdd;
 }
 .cprimario {
-  background-color: #00747C;
+  background-color: #00747c;
 }
 .csecundario {
-  background-color: #00BBC9;
+  background-color: #00bbc9;
 }
 .cterciario {
   background-color: #878787;
 }
 .ccuarto {
-  background-color: #CACACA;
+  background-color: #cacaca;
 }
-.ccontrast{
+.ccontrast {
   background-color: #202022;
 }
 
@@ -112,7 +141,7 @@ CONFIGURACIÓN ID
   padding: 2.5% 20% 2.5% 20%;
 
   /* position: fixed elimina el scroll vertical para la pantalla inicial con el carrusel*/
-  position: static;
+  margin: auto;
   border: black;
 }
 
@@ -121,6 +150,7 @@ CONFIGURACIÓN ID
 }
 #ProductosDestacados {
   padding: 1%;
+ display: inline;
 }
 #copyright {
   text-align: center;
@@ -159,8 +189,8 @@ nav ul li a {
 }
 li a.active,
 li a:hover {
-  background: #00BBC9;
-  color:#202022;
+  background: #00bbc9;
+  color: #202022;
   transition: 0.5s;
 }
 .checkbtn {
