@@ -19,6 +19,9 @@ CONFIGURACIÓN DE ELEMENTOS
 */
 footer {
 margin-top: auto;
+position:static;
+clear: both;
+
 }
 ul {
   list-style: none;
@@ -94,6 +97,8 @@ CONFIGURACIÓN DE CLASES
   cursor: pointer;
 }
 .contacto {
+  display: flex;
+  flex-direction: column;
   padding: 0 10%;
 }
 .card-image{
@@ -133,7 +138,7 @@ PALETA DE COLORES
   background-color: #cacaca;
 }
 .ccontrast {
-  background-color: #202022;
+  background-color: #2c2c2e;
 }
 
 /*
