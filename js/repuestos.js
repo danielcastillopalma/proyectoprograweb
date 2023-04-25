@@ -1,8 +1,15 @@
-function cargarItems() {
-    var p1 = document.getElementById('contenedorProdRep');
 
-    for (let i = 0; i < 25; i++) {
-        p1.insertAdjacentHTML('beforeend', '<div class="card" style="width: 18rem;"><img src="..." class="card-img-top" alt="...">     <div class="card-body"><h5 class="card-title">Card title</h5><p class="card-text">Some quick example text to build on the card title and make up the bulk of the cards content.</p><a href="#" class="btn btn-primary">Go somewhere</a></div></div>');
-    }
+const contenedorProductos = document.querySelector(".productosRepuestos");
+
+function fetchProducto(idCategory) {
+  fetch(`https://fakestoreapi.com/products/${idCategory}/`)
+    .then((res) => res.json())
+    .then((data) => console.log(data));
 }
 
+function fetchProductos(numero){
+    for(i=1;i<=numero;i++){
+        fetchProducto(i);
+    }
+}
+fetchProductos(10);

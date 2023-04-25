@@ -1,0 +1,15 @@
+[
+  {
+    "idProd": 1,
+    "nomProd": "Bujia",
+    "valorProd": 3000,
+    "descProd": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis ea pariatur, ab voluptas eveniet dolore tempore illo cum, dicta, placeat soluta necessitatibus. Qui eum molestiae commodi, voluptatum sit aspernatur dicta."
+  },
+  {
+    "idProd": 2,
+    "nomProd": "Neumatico",
+    "valorProd": 30000,
+    "descProd": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis ea pariatur, ab voluptas eveniet dolore tempore illo cum, dicta, placeat soluta necessitatibus. Qui eum molestiae commodi, voluptatum sit aspernatur dicta."
+  
+  }
+]
