@@ -1,15 +1,24 @@
-
-const contenedorProductos = document.querySelector(".productosRepuestos");
-
-function fetchProducto(idCategory) {
-  fetch(`https://fakestoreapi.com/products/${idCategory}/`)
-    .then((res) => res.json())
-    .then((data) => console.log(data));
+function cargarProductos() {
+  fetch(
+    "https://raw.githubusercontent.com/danielcastillopalma/api/master/db.json"
+  )
+    .then(function (res) {
+      return res.json();
+    })
+    .then(function (data) {
+      let html = "";
+      data.forEach(function (producto) {
+        html += `
+          <div class="card" style="width: 18rem;">
+            <img src=${producto.imgSrc} class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">${producto.nomProd}</h5>
+              <p class="card-text">${producto.descProd}</p>
+            </div>
+          </div>
+      `;
+      document.getElementById('contenedorProdRep').innerHTML=html;
+      });
+    });
 }
-
-function fetchProductos(numero){
-    for(i=1;i<=numero;i++){
-        fetchProducto(i);
-    }
-}
-fetchProductos(10);
+cargarProductos();
