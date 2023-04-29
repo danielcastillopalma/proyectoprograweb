@@ -98,31 +98,50 @@
     <div class="row h1tienda csecundario">
       <h1>Repuestos</h1>
     </div>
-    <div class="productosRepuestos row" id="contenedorProdRep"></div>
-    <div class="container">    
+    <div>
+      <div class="contacto container"></div>
+      <div class="productosRepuestos row" id="contenedorProdRep"></div>
+
+      <div class="paginacion">
         <ul class="pagination">
           <li class="page-item">
-            <a class="page-link" href="#" aria-label="Previous">
+            <a
+              class="page-link"
+              href="#"
+              onclick="pagDown()"
+              aria-label="Previous"
+            >
               <span aria-hidden="true">&laquo;</span>
             </a>
           </li>
-          <li class="page-item"><a class="page-link" href="#">1</a></li>
-          <li class="page-item"><a class="page-link" href="#">2</a></li>
-          <li class="page-item"><a class="page-link" href="#">3</a></li>
           <li class="page-item">
-            <a class="page-link" href="#" aria-label="Next">
+            <a class="page-link" href="repuestos.html">1</a>
+          </li>
+          <li class="page-item">
+            <a class="page-link" href="#" onclick="page2()">2</a>
+          </li>
+          <li class="page-item">
+            <a class="page-link" href="#" onclick="page3()">3</a>
+          </li>
+          <li class="page-item">
+            <a
+              id="up"
+              class="page-link"
+              onclick="pagUp()"
+              num="1"
+              href="#"
+              aria-label="Next"
+            >
               <span aria-hidden="true">&raquo;</span>
             </a>
           </li>
-        </ul>      
+        </ul>
+      </div>
     </div>
 
     <footer>
-      <!--
-             Footer
-         -->
-      <div class="container-fluid">
-        <div class="row p-5 cprimario">
+      <div class="container-fluid flex-end">
+        <div class="row p-4 cprimario">
           <div class="col-lg-3 col-xs-12 col-md-6 pt-5">
             <a href="index.html" class="clink h4">
               <img src="img/logo.png" alt="" class="logo" /> Mecanica MBJ
@@ -132,11 +151,15 @@
             <h4 class="ctitulo">Enlaces</h4>
             <div>
               <ul>
-                <li><a href="" class="clink">Inicio</a></li>
-                <li><a href="" class="clink">Repuestos</a></li>
-                <li><a href="" class="clink">Customización</a></li>
-                <li><a href="" class="clink">Servicios</a></li>
-                <li><a href="" class="clink">Contacto</a></li>
+                <li><a href="index.html" class="clink">Inicio</a></li>
+                <li><a href="repuestos.html" class="clink">Repuestos</a></li>
+                <li>
+                  <a href="customizacion.html" class="clink">Customización</a>
+                </li>
+                <li><a href="servicios.html" class="clink">Servicios</a></li>
+                <li>
+                  <a href="index.html#contacto" class="clink">Contacto</a>
+                </li>
               </ul>
             </div>
           </div>
@@ -167,6 +190,7 @@
         </div>
       </div>
     </footer>
+
     <script
       src="https://code.jquery.com/jquery-3.6.4.min.js"
       integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8="
