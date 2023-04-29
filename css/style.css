@@ -44,8 +44,10 @@ p{
 /*
 CONFIGURACIÓN DE CLASES
 */
+
 .productosRepuestos{
   width: 100%;
+  
 }
 .formCont {
   padding: 1%;
@@ -116,7 +118,6 @@ CONFIGURACIÓN DE CLASES
   align-items: center;
   text-align: center;
 
-  margin-bottom: 2.5%;
 }
 
 .filtro {
