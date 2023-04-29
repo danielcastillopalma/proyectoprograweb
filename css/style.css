@@ -23,7 +23,6 @@ footer {
   margin-top: auto;
   position: static;
   clear: both;
-
 }
 
 ul {
@@ -34,21 +33,18 @@ ul {
 a {
   text-decoration: none;
 }
-p{
+p {
   padding: 0;
   margin: 0;
   margin-left: 1%;
 }
 
-
 /*
 CONFIGURACIÓN DE CLASES
 */
 
-.productosRepuestos{
+.productosRepuestos {
   width: 100%;
-  
-  
 }
 .formCont {
   padding: 1%;
@@ -118,17 +114,24 @@ CONFIGURACIÓN DE CLASES
   display: flex;
   align-items: center;
   text-align: center;
-
 }
-.paginacion{
+.paginacion {
   display: flex;
   flex-direction: column;
-  
-  margin: 2%;
-  margin-bottom: 5%;
-  width: 100%;
   align-items: center;
+  padding: 1%;
 }
+.page-link:hover{
+  background-color: #00bbc9;  
+}
+.page-link:focus{
+  box-shadow: none !important;
+}
+.activo{
+  background-color: #00747c !important;
+  color:#ffff !important;
+}
+
 .filtro {
   padding: 1%;
   text-decoration: underline;
@@ -157,42 +160,37 @@ CONFIGURACIÓN DE CLASES
 .logoimagen {
   padding: 10%;
 }
-.logins{
-  margin:8% 0 8% 0;
+.logins {
+  margin: 8% 0 8% 0;
   height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
-.login{
+.login {
   justify-content: center;
   display: flex;
-  padding:5% 7% 5% 7%;
+  padding: 5% 7% 5% 7%;
   justify-content: center;
   align-items: center;
- 
 }
-.barrabaja{
+.barrabaja {
   width: 100%;
   min-height: 20px;
   justify-content: center;
   align-items: center;
-  
 }
-.register{
+.register {
   justify-content: center;
   display: flex;
   flex-direction: column;
   align-items: center;
   height: 100%;
-  
-  
 }
-.btnregister{
+.btnregister {
   width: 100%;
-  margin-bottom: 5  %;
-  
+  margin-bottom: 5%;
 }
 
 /*
@@ -273,14 +271,12 @@ nav ul {
   margin-right: 1%;
   margin: 0;
   background-color: #00747c;
-
 }
 
 nav ul li {
   display: inline-block;
   line-height: 80px;
   margin: 0 5px;
-
 }
 
 nav ul li a {
@@ -319,7 +315,6 @@ section {
   height: calc(100vh - 80px);
   margin-top: auto;
   position: relative;
-
 }
 
 /*
@@ -331,20 +326,17 @@ CONFIGURACIONES MEDIA QUERY
     width: 100%;
     margin-bottom: 5%;
     margin-top: 5%;
-
   }
 
   .h1tienda {
     margin-top: 4%;
     padding: 1.4%;
-
   }
 
   .swiper-slide {
     padding: 0 8% 0 8%;
     padding-top: 0%;
     margin: 0;
-
   }
 }
 
@@ -391,7 +383,7 @@ CONFIGURACIONES MEDIA QUERY
     color: #6096b4;
   }
 
-  #check:checked~ul {
+  #check:checked ~ ul {
     left: 0;
   }
 }
