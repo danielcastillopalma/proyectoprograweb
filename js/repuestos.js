@@ -27,6 +27,7 @@ function cargarProductos() {
               <h5 class="card-title">${producto.nomProd}</h5>
               <p class="card-text">${producto.descProd}</p>
               <h3>$${producto.valorProd}</h3>
+              <button class="btnMas csecundario clink" id="${producto.idProd}" onclick="agregar(this)"><i class="fa-duotone fa-plus fa-beat"></i></button>
             </div>
           </div>
           
@@ -61,7 +62,8 @@ function page2() {
             <div class="card-body">
               <h5 class="card-title">${producto.nomProd}</h5>
               <p class="card-text">${producto.descProd}</p>
-              <h3>$${producto.valorProd}</h3>
+              <h3>$${producto.valorProd}</h3> 
+              <button class="btnMas cprimario  clink" id="${producto.idProd}" onclick="agregar(this)"><i class="fa-duotone fa-plus fa-beat"></i></button>
             </div>
           </div>
           
@@ -104,6 +106,7 @@ function page3() {
               <h5 class="card-title">${producto.nomProd}</h5>
               <p class="card-text">${producto.descProd}</p>
               <h3>$${producto.valorProd}</h3>
+              <button class="btnMas csecundario  clink" id="${producto.idProd}" onclick="agregar(this)"><i class="fa-duotone fa-plus fa-beat"></i></button>
             </div>
           </div>
           
@@ -141,6 +144,7 @@ function pagUp() {
               <h5 class="card-title">${producto.nomProd}</h5>
               <p class="card-text">${producto.descProd}</p>
               <h3>$${producto.valorProd}</h3>
+              <button class="btnMas csecundario  clink" id="${producto.idProd}" onclick="agregar(this)"><i class="fa-duotone fa-plus fa-beat"></i></button>
             </div>
           </div>
           
@@ -176,6 +180,7 @@ function pagDown() {
               <h5 class="card-title">${producto.nomProd}</h5>
               <p class="card-text">${producto.descProd}</p>
               <h3>$${producto.valorProd}</h3>
+              <button class="btnMas csecundario  clink" id="${producto.idProd}" onclick="agregar(this)"><i class="fa-duotone fa-plus fa-beat"></i></button>
             </div>
           </div>
           
@@ -186,4 +191,29 @@ function pagDown() {
         return producto.idProd === nueva * 20;
       });
     });
+}
+
+/*
+arreglar codigo de abajo
+*/
+
+function agregar(produId) {
+  let id = produId.id;
+  console.log(id);
+
+  fetch(
+    "https://raw.githubusercontent.com/danielcastillopalma/api/master/db.json"
+  )
+    .then(function (res) {
+      return res.json();
+    })
+    .then(function (data) {
+      for (var prodId in data) {
+        console.log(' name=' + prodId + ' value=' + data[id]);
+        if(prodId===id){
+          return;
+        }
+     }
+    });
+
 }
