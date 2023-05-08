@@ -44,8 +44,10 @@ CONFIGURACIÓN DE CLASES
 */
 .carta-serv{
   height: 90vh;
+  width: 98vh;
   display: flex;
   flex-direction: column;
+  margin:1%;
   
 }
 .card-img-top{
