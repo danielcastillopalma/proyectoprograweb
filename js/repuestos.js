@@ -26,7 +26,7 @@ function cargarProductos() {
             <div class="card-body">
               <h5 class="card-title">${producto.nomProd}</h5>
               <p class="card-text">${producto.descProd}</p>
-              <h3>$${producto.idProd}</h3>
+              <h3>$${producto.valorProd}</h3>
             </div>
           </div>
           
@@ -61,7 +61,7 @@ function page2() {
             <div class="card-body">
               <h5 class="card-title">${producto.nomProd}</h5>
               <p class="card-text">${producto.descProd}</p>
-              <h3>$${producto.idProd}</h3>
+              <h3>$${producto.valorProd}</h3>
             </div>
           </div>
           
@@ -103,7 +103,7 @@ function page3() {
             <div class="card-body">
               <h5 class="card-title">${producto.nomProd}</h5>
               <p class="card-text">${producto.descProd}</p>
-              <h3>$${producto.idProd}</h3>
+              <h3>$${producto.valorProd}</h3>
             </div>
           </div>
           
@@ -140,7 +140,7 @@ function pagUp() {
             <div class="card-body">
               <h5 class="card-title">${producto.nomProd}</h5>
               <p class="card-text">${producto.descProd}</p>
-              <h3>$${producto.idProd}</h3>
+              <h3>$${producto.valorProd}</h3>
             </div>
           </div>
           
@@ -175,7 +175,7 @@ function pagDown() {
             <div class="card-body">
               <h5 class="card-title">${producto.nomProd}</h5>
               <p class="card-text">${producto.descProd}</p>
-              <h3>$${producto.idProd}</h3>
+              <h3>$${producto.valorProd}</h3>
             </div>
           </div>
           
