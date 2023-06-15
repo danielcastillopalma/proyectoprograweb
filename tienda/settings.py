@@ -36,7 +36,7 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'django.contrib.staticfiles'
+    'django.contrib.staticfiles',
     'clientes',
 ]
 
@@ -55,7 +55,7 @@ ROOT_URLCONF = 'tienda.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['clientes/migrations/templates/'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
