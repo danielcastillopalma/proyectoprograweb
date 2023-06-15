@@ -38,7 +38,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="C:\Users\Duoc\Desktop\proyectoprograweb\myvenv"
+VIRTUAL_ENV="C:\Users\chiko\Desktop\Nueva carpeta\proyectoprograweb\myvenv"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"
