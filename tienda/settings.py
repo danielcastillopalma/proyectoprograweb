@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
 from pathlib import Path
-
+import sys
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-_z@ega9o7%y_!_*eh-5b(aiyihj#hd5^p3a_ch#5ml*vodq!6c
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
+sys.modules['fontawesome_free'] = __import__('fontawesome-free')
 
 # Application definition
 
@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'clientes',
     'bootstrap5',
-    'fontawesomefree',
+    'fontawesome_free',
 ]
 
 MIDDLEWARE = [
