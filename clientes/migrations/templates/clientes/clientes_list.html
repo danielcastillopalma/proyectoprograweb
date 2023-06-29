@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>editar datos clientes</h1>
+    <br>
+    <button type="button">
+        <a href="{% url 'clientesAdd'%}"> agregar</a>
+
+    </button>
+    <div id="mensajes">
+        {%if mensaje%}
+        {{mensaje}}
+        {%endif%}
+
+    </div>
+    <table>
+        {%if clientes%}
+        <th>Rut</th>
+        <th>nombre</th>
+        <th>apellido</th>
+        <th>eliminar</th>
+        <th>modificar</th>
+        {%for x in clientes%}
+        <tr>
+            <td>{{x.rut}}</td>
+            <td>{{x.nombre}}</td>
+            <td>{{x.apellido}}</td>
+            <td>Eliminar</a></td>
+            <td>modificar</a></td>
+        </tr>
+        {%endfor%}
+        {%endif%}
+
+    </table>
+</body>
+
+</html>
