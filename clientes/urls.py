@@ -9,5 +9,9 @@ urlpatterns =[
     path('customizacion.html',views.customizacion,name='customizacion'),
     path('login.html',views.login,name='login'), 
     path('repuestos.html',views.repuestos,name='repuestos'),
-    path('servicios.html',views.servicios,name='servicios')
+    path('servicios.html',views.servicios,name='servicios'),
+    path('register.html',views.register, name='register'),
+    path('crud', views.crud, name='crud'),
+    path('clientesAdd', views.clientesAdd, name='clientesAdd'),
+    
 ]
