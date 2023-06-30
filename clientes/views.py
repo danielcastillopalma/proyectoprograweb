@@ -59,7 +59,8 @@ def clientesAdd(request):
         direccion        =direccion,
         activo           =1)
         obj.save()
-        context={'mensaje': "Ok, datos grabados"}
+        clientes=Cliente.objects.all()
+        context={'clientes':clientes}
         return render(request,'clientes/clientes_list.html',context)
     
 def clientesReg(request):
