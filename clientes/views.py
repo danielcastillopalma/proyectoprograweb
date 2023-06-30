@@ -51,6 +51,7 @@ def clientes_findEdit(request, pk):
         else:
             context={'error'}
             return render(request,'clientes/clientes_list.html',context)
+        
 def clientesAdd(request):
     if request.method != "POST":
         generos=Genero.objects.all()
@@ -124,3 +125,36 @@ def clientesReg(request):
         context={'mensaje': "Ok, datos grabados"}
         return render(request,'clientes/login.html',context)
 
+def clientesUpdate(request):
+    if request.method=="POST":
+        rut=request.POST["run"]
+        nombre=request.POST["nombre"]
+        apaterno=request.POST["apaterno"]
+        amaterno=request.POST["apmaterno"]
+        genero=request.POST["genero"]
+        telefono=request.POST["telefono"]
+        email=request.POST["email"]
+        direccion=request.POST["direccion"]
+        activo="1"
+
+        objGenero=Genero.objects.get(id_genero=genero)
+        cliente=Cliente()
+        cliente.rut              =rut,
+        cliente.nombre           =nombre,
+        cliente.apellido_paterno =apaterno,
+        cliente.apellido_materno =amaterno,
+        cliente.fecha_nacimiento ="1998-01-01",
+        cliente.id_genero        =objGenero,
+        cliente.telefono         =telefono,
+        cliente.email            =email,
+        cliente.direccion        =direccion,
+        cliente.activo           =1
+        cliente.save()
+        
+        generos=Genero.objects.all()
+        context={'mensaje':"Datos actualizados",'generos':generos,'cliente':cliente}
+        return render(request,'clientes/clientes_edit.html',context)
+    else:
+        clientes=Cliente.objects.all()
+        context={'clientes':clientes}
+        return render(request,'clientes/clientes_list.html',context)
