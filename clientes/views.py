@@ -25,7 +25,32 @@ def crud(request):
     clientes=Cliente.objects.all()
     context={'clientes':clientes}
     return render(request,'clientes/clientes_list.html',context)
-
+def clientes_del(request,pk):
+    try:
+        cliente=Cliente.objects.get(rut=pk)
+        
+        cliente.delete()
+        mensaje="Registro Eliminado"
+        clientes=Cliente.objects.all()
+        context = {'clientes':clientes, 'mensaje':mensaje}
+        return render(request,'clientes/clientes_list.html',context)
+    except:
+        mensaje="Error, rut no existe"
+        clientes=Cliente.objects.all()
+        context = {'clientes':clientes, 'mensaje':mensaje}
+        return render(request,'clientes/clientes_list.html',context)
+        
+def clientes_findEdit(request, pk):
+    if pk!="":
+        cliente=Cliente.objects.get(rut=pk)
+        generos=Genero.objects.all()
+        print(type(cliente.id_genero.genero))
+        context={'cliente':cliente,'generos':generos}
+        if cliente:
+            return render(request,'clientes/clientes_edit.html',context)
+        else:
+            context={'error'}
+            return render(request,'clientes/clientes_list.html',context)
 def clientesAdd(request):
     if request.method != "POST":
         generos=Genero.objects.all()
@@ -98,3 +123,4 @@ def clientesReg(request):
         obj.save()
         context={'mensaje': "Ok, datos grabados"}
         return render(request,'clientes/login.html',context)
+

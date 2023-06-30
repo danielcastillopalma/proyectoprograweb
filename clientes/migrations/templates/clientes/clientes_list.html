@@ -1,4 +1,6 @@
+
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
 
 <head>
@@ -22,21 +24,22 @@
     </div>
     <table>
         {%if clientes%}
-        <th>Rut</th>
-        <th>nombre</th>
-        <th>apellido</th>
-        <th>eliminar</th>
-        <th>modificar</th>
-        {%for x in clientes%}
-        <tr>
-            <td>{{x.rut}}</td>
-            <td>{{x.nombre}}</td>
-            <td>{{x.apellido}}</td>
-            <td>Eliminar</a></td>
-            <td>modificar</a></td>
-        </tr>
-        {%endfor%}
+            <th>Rut</th>
+            <th>nombre</th>
+            <th>apellido</th>
+            <th>eliminar</th>
+            <th>modificar</th>
+            {%for tmp in clientes %}
+                <tr>
+                    <td>{{tmp.rut}}</td>
+                    <td>{{tmp.nombre}}</td>
+                    <td>{{tmp.apaterno}}</td>
+                    <td><a href="{% url 'clientes_del' pk=tmp.rut %}">eliminar</a></td>
+                    <td><a href="{% url 'clientes_findEdit' pk=tmp.rut %}">modificar</a></td>
+                </tr>
+            {%endfor%}
         {%endif%}
+        
 
     </table>
 </body>
