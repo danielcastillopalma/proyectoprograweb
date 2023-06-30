@@ -131,28 +131,26 @@ def clientesUpdate(request):
         nombre=request.POST["nombre"]
         apaterno=request.POST["apaterno"]
         amaterno=request.POST["apmaterno"]
-        genero=request.POST["genero"]
         telefono=request.POST["telefono"]
         email=request.POST["email"]
         direccion=request.POST["direccion"]
         activo="1"
 
-        objGenero=Genero.objects.get(id_genero=genero)
+        
         cliente=Cliente()
         cliente.rut              =rut,
         cliente.nombre           =nombre,
         cliente.apellido_paterno =apaterno,
         cliente.apellido_materno =amaterno,
-        cliente.fecha_nacimiento ="1998-01-01",
-        cliente.id_genero        =objGenero,
+       
         cliente.telefono         =telefono,
         cliente.email            =email,
         cliente.direccion        =direccion,
         cliente.activo           =1
         cliente.save()
         
-        generos=Genero.objects.all()
-        context={'mensaje':"Datos actualizados",'generos':generos,'cliente':cliente}
+        
+        context={'mensaje':"Datos actualizados",'cliente':cliente}
         return render(request,'clientes/clientes_edit.html',context)
     else:
         clientes=Cliente.objects.all()
