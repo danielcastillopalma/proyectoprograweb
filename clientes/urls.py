@@ -13,5 +13,6 @@ urlpatterns =[
     path('register',views.register, name='register'),
     path('crud', views.crud, name='crud'),
     path('clientesAdd', views.clientesAdd, name='clientesAdd'),
+     path('clientesReg', views.clientesReg, name='clientesReg'),
     
 ]
