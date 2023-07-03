@@ -218,14 +218,22 @@ CONFIGURACIÓN DE CLASES
   margin-bottom: 5%;
 }
 .form-register{  
-  margin: 5% 7% 5% 7%;
+  margin: 5% 17% 5% 17%;
   padding: 5% 7% 5% 7%;
   justify-content: center;
   align-items: center;
-  background-color: #00bbc9;
+  background-color: #00747c !important;
 }
-.form-register input,select{  
- margin:2%;
+
+
+.form-register select{
+  margin-bottom:3%;
+  padding: 1%;
+}
+
+.form-register input{
+  margin-bottom:3%;
+  padding:1%;
 }
 
 /*

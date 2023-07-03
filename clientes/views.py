@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from .models import Cliente, Genero
 from datetime import datetime
+from functools import wraps
+import django.views.static
 
 # Create your views here.
 
@@ -150,7 +152,7 @@ def clientesReg(request):
 
 def clientesUpdate(request):
     if request.method == "POST":
-        rut = request.POST["run"]       
+        rut = request.POST["run"]
         nombre = request.POST["nombre"]
         apaterno = request.POST["apaterno"]
         amaterno = request.POST["apmaterno"]
@@ -159,22 +161,22 @@ def clientesUpdate(request):
         email = request.POST["email"]
         direccion = request.POST["direccion"]
         activo = "1"
-        
-        pk=Cliente.objects.get(rut=rut)
-        password=pk.password
+
+        pk = Cliente.objects.get(rut=rut)
+        password = pk.password
         fecnac = pk.fecha_nacimiento
         objGenero = Genero.objects.get(id_genero=genero)
-       
+
         cliente = Cliente()
         cliente.rut = rut
         cliente.nombre = nombre
         cliente.apellido_paterno = apaterno
         cliente.apellido_materno = amaterno
         cliente.telefono = telefono
-        cliente.id_genero=objGenero
-        cliente.password=password
+        cliente.id_genero = objGenero
+        cliente.password = password
         cliente.email = email
-        cliente.fecha_nacimiento=fecnac
+        cliente.fecha_nacimiento = fecnac
         cliente.direccion = direccion
         cliente.activo = 1
         cliente.save()
@@ -187,3 +189,16 @@ def clientesUpdate(request):
         clientes = Cliente.objects.all()
         context = {'clientes': clientes}
         return render(request, 'clientes/clientes_list.html', context)
+
+
+def no_cache_static(f):
+    @wraps(f)
+    def static(*a, **kw):
+        response = f(*a, **kw)
+        response.headers["Cache-Control"] = "no-cache"
+        return response
+
+    return static
+
+
+django.views.static.serve = no_cache_static(django.views.static.serve)

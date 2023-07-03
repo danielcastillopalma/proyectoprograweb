@@ -1,176 +1,227 @@
 <!DOCTYPE html>
 {% load static %}
 <html lang="es">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="shortcut icon" href="{% static 'img/logo.ico' %}" type="image/x-icon" />
+    <link
+      rel="shortcut icon"
+      href="{% static 'img/logo.ico' %}"
+      type="image/x-icon"
+    />
     <title>Mecánica MBJ</title>
     <link
-    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
-    rel="stylesheet"
-    integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
-    crossorigin="anonymous"
-  />
-  <script src="{% static 'fontawesomefree/js/all.min.js' %}"></script>
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-</head>
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+      crossorigin="anonymous"
+    />
+    <script src="{% static 'fontawesomefree/js/all.min.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+  </head>
 
-<body class="ccuarto">
-    <!--
-            Cabecera con menu y carrusel
-        -->
+  <body class="ccuarto">
     <nav class="cprimario">
-        <input type="checkbox" id="check">
-        <label for="check" class="checkbtn">
-            <i class="fas fa-bars"></i>
-        </label>
-        <a href="/clientes/index" class="enlace clink">
-            <img src="{% static 'img/logo.png' %}" alt="" class="logo"> Mecanica MBJ
-        </a>
+      <input type="checkbox" id="check" />
+      <label for="check" class="checkbtn">
+        <i class="fas fa-bars"></i>
+      </label>
+      <a href="/clientes/index" class="enlace clink">
+        <img src="{% static 'img/logo.png' %}" alt="" class="logo" /> Mecanica
+        MBJ
+      </a>
 
-        <ul>
+      <ul>
+        <li>
+          <a href="index">VOLVER <i class="fa-solid fa-arrow-left"></i></a>
+        </li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
 
-            <li><a href="index">VOLVER <i class='fa-solid fa-arrow-left'></i></a></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-
-            <li></li>
-        </ul>
+        <li></li>
+      </ul>
     </nav>
-  <form class="form-register" action="clientesAdd" method="POST">
-    {% csrf_token%}
-    <div class="row">
-      <input type="text" class="form-control" name="email" placeholder="Correo Electrónico">
 
-    </div>
-    <div class="row">
-      <div class="col">
-        <input type="password" class="form-control" name="password" placeholder="Contraseña">
-      </div>
-      <div class="col">
-        <input type="password" class="form-control" name="passwordConf" placeholder="Repita su Contraseña">
-      </div>
-    </div>
-    <div class="row">
-      <div class="col">
-        <div class="row">
-          <input type="text" class="form-control" name="nombre" placeholder="nombre">
-        </div>
-        <div class="row">
-          <input type="text" class="form-control" name="apaterno" placeholder="apellido paterno">
-        </div>
-        <div class="row">
-          <input type="text" class="form-control" name="apmaterno" placeholder="apellido materno">
-        </div>
-
-      </div>
-      <div class="col">
-        <div class="row">
-          <input type="text" class="form-control" name="run" placeholder="RUN">
-
-        </div>
-        <div class="row">
-
-          <select id="inputState" name="genero" class="form-control">
-            <option value="Genero" selected>Genero</option>
-           {%for genero in generos%}
-            <option value="{{genero.id_genero}}">{{genero.genero}}</option>
-           {%endfor%}
-          </select>
-
-        </div>
-        <div class="row">
-          <input type="number" class="form-control" name="telefono" placeholder="telefono">
-        </div>
-        <div class="row">
-          <input type="date" class="form-control" name="fecnac" placeholder="fecha nacimiento">
+    <form class="form-register" action="clientesReg" method="POST">
+      {% csrf_token%}
+      <!-- #CORREO -->
+      <div class="row">
+        <div class="col">
+          <input
+            type="text"
+            class="form-control"
+            name="email"
+            placeholder="Correo Electrónico"
+          />
         </div>
       </div>
-    </div>
-    <div class="row">
-      <input type="text" class="form-control" name="direccion" placeholder="Direccion">
-
-    </div>
-    <div class="mb-3 btnregister">
-      <button class="btn btn-light rounded-5 btnregister" type="submit"><i class="fa-light fa-id-card"></i>
-        Agregar Cliente </button>
-    </div>
-  </form>
-  <div>
-    
-    {%if mensaje%} 
-    {{mensaje}}
-    {%endif%}
-  </div>
-</body>
-<footer>
-  <!--
-       Footer
-   -->
-  <div class="container-fluid">
-      <div class="row p-5 cprimario">
-
+      <!--#CONTRASEÑA X2-->
+      <div class="row">
+        <div class="col">
+          <input
+            type="password"
+            class="form-control"
+            name="password"
+            placeholder="Contraseña"
+          />
+        </div>
+        <div class="col">
+          <input
+            type="password"
+            class="form-control"
+            name="passwordConf"
+            placeholder="Repita su Contraseña"
+          />
+        </div>
+      </div>
+      <!--#NOMBRE Y APELLIDOS-->
+      <div class="row">
+        <div class="col">
+          <div class="row">
+            <input
+              type="text"
+              class="form-control"
+              name="nombre"
+              placeholder="nombre"
+            />
+          </div>
+          <div class="row">
+            <input
+              type="text"
+              class="form-control"
+              name="apaterno"
+              placeholder="apellido paterno"
+            />
+          </div>
+          <div class="row">
+            <input
+              type="text"
+              class="form-control"
+              name="apmaterno"
+              placeholder="apellido materno"
+            />
+          </div>
+        </div>
+        <div class="col">
+          <!--#RUT-->
+          <div class="row">
+            <input
+              type="text"
+              class="form-control"
+              name="run"
+              placeholder="RUN"
+            />
+          </div>
+          <!--#GENERO-->
+          <div class="row">
+            <select id="inputState" name="genero" class="form-control">
+              <option value="Genero" selected>Genero</option>
+              {%for genero in generos%}
+              <option value="{{genero.id_genero}}">{{genero.genero}}</option>
+              {%endfor%}
+            </select>
+          </div>
+          <!--#TELEFONO-->
+          <div class="row">
+            <input
+              type="number"
+              class="form-control"
+              name="telefono"
+              placeholder="telefono"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <input
+            type="date"
+            class="form-control"
+            name="fecnac"
+            placeholder="fecha nacimiento"
+          />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <input
+            type="text"
+            class="form-control"
+            name="direccion"
+            placeholder="Direccion"
+          />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <div class="mb-3 btnregister">
+            <button class="btn btn-light rounded-5 btnregister" type="submit">
+              <i class="fa-light fa-id-card"></i> Agregar Usuario
+            </button>
+          </div>
+        </div>
+      </div>
+    </form>
+    <div>{%if mensaje%} {{mensaje}} {%endif%}</div>
+    <footer>
+      <!--
+           Footer
+       -->
+      <div class="container-fluid">
+        <div class="row p-5 cprimario">
           <div class="col-lg-3 col-xs-12 col-md-6 pt-5">
-              <a href="index" class="clink h4 logoimagen ">
-                  <img src="img/logo.png" alt="" class="logo"> Mecanica MBJ
-              </a>
+            <a href="index" class="clink h4 logoimagen">
+              <img src="img/logo.png" alt="" class="logo" /> Mecanica MBJ
+            </a>
           </div>
           <div class="col-lg-3 col-xs-12 col-md-6">
-              <h4 class="ctitulo">Enlaces</h4>
-              <div>
-                  <ul>
-                      <li><a href="" class="clink">Inicio</a></li>
-                      <li><a href="" class="clink">Repuestos</a></li>
-                      <li><a href="" class="clink">Customización</a></li>
-                      <li><a href="" class="clink">Servicios</a></li>
-                      <li><a href="" class="clink">Contacto</a></li>
-                  </ul>
-              </div>
+            <h4 class="ctitulo">Enlaces</h4>
+            <div>
+              <ul>
+                <li><a href="" class="clink">Inicio</a></li>
+                <li><a href="" class="clink">Repuestos</a></li>
+                <li><a href="" class="clink">Customización</a></li>
+                <li><a href="" class="clink">Servicios</a></li>
+                <li><a href="" class="clink">Contacto</a></li>
+              </ul>
+            </div>
           </div>
+          <div class="col-lg-3 col-xs-12 col-md-6"></div>
           <div class="col-lg-3 col-xs-12 col-md-6">
-
+            <h4 class="ctitulo">Redes sociales</h4>
+            <div class="flex-container clink">
+              <a href="https://www.instagram.com" class="clink"
+                ><i class="fa-brands fa-instagram"></i
+              ></a>
+              <a href="https://www.facebook.com" class="clink"
+                ><i class="fa-brands fa-facebook"></i
+              ></a>
+              <a href="https://www.twitter.com" class="clink"
+                ><i class="fa-brands fa-twitter"></i
+              ></a>
+              <a href="https://www.linkedin.com" class="clink"
+                ><i class="fa-brands fa-linkedin"></i
+              ></a>
+              <a href="https://www.whatsapp.com" class="clink"
+                ><i class="fa-brands fa-whatsapp"></i
+              ></a>
+            </div>
           </div>
-          <div class="col-lg-3 col-xs-12 col-md-6">
-              <h4 class="ctitulo">Redes sociales</h4>
-              <div class=" flex-container clink">
-                  <a href="https://www.instagram.com" class="clink"><i class="fa-brands fa-instagram"></i></a>
-                  <a href="https://www.facebook.com" class="clink"><i class="fa-brands fa-facebook"></i></a>
-                  <a href="https://www.twitter.com" class="clink"><i class="fa-brands fa-twitter"></i></a>
-                  <a href="https://www.linkedin.com" class="clink"><i class="fa-brands fa-linkedin"></i></a>
-                  <a href="https://www.whatsapp.com" class="clink"><i class="fa-brands fa-whatsapp"></i></a>
-              </div>
-          </div>
-      </div>
-      <div class="col-xs-12 cprimario p-1 ctitulo" id="copyright">
+        </div>
+        <div class="col-xs-12 cprimario p-1 ctitulo" id="copyright">
           <p>Todos los derechos reservados</p>
+        </div>
       </div>
-  </div>
-</footer>
-
-<script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
-<script src="https://code.jquery.com/jquery-3.6.4.min.js"
-integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
-integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
-crossorigin="anonymous"></script>
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"
-integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD"
-crossorigin="anonymous"></script>
-<script src="{% static 'js/utilitario.js'%}"></script>
-<script src="{% static 'js/swiper.js'%}"></script>
-</body>
-
+    </footer>
+  </body>
 </html>
