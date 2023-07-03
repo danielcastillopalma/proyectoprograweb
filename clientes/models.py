@@ -8,7 +8,7 @@ class Genero(models.Model):
         return str(self.genero)
 
 class Cliente(models.Model):
-    rut              = models.CharField(primary_key=True, max_length=10)
+    rut              = models.CharField( unique=True, max_length=10,blank=False,null=False)
     nombre           = models.CharField(max_length=20)
     password         = models.CharField(max_length=20)
     apellido_paterno = models.CharField(max_length=20)
@@ -16,7 +16,7 @@ class Cliente(models.Model):
     fecha_nacimiento = models.DateField(blank=True, null=True) 
     id_genero        = models.ForeignKey('Genero',on_delete=models.CASCADE, db_column='idGenero' ,default=3)   
     telefono         = models.CharField(max_length=45)
-    email            = models.EmailField(unique=True, max_length=100, blank=True, null=True)
+    email            = models.EmailField(primary_key=True, max_length=100)
     direccion        = models.CharField(max_length=50, blank=True, null=True)  
     activo           = models.IntegerField()
 

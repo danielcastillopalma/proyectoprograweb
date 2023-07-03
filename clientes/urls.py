@@ -1,5 +1,5 @@
 #from django.conf.urls improt url
-from django.urls import path
+from django.urls import path,include
 from . import views
 
 
@@ -17,4 +17,6 @@ urlpatterns =[
     path('clientes_del/<str:pk>', views.clientes_del, name='clientes_del'),  
     path('clientes_findEdit/<str:pk>', views.clientes_findEdit, name='clientes_findEdit'),
     path('clientesUpdate', views.clientesUpdate, name='clientesUpdate'),
+    
+    path("accounts/",include("django.contrib.auth.urls")),
 ]

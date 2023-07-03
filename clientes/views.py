@@ -29,6 +29,7 @@ def repuestos(request):
     return render(request, 'clientes/repuestos.html', context)
 
 
+
 def servicios(request):
     context = {}
     return render(request, 'clientes/servicios.html', context)

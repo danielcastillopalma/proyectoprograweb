@@ -58,7 +58,7 @@ ROOT_URLCONF = 'tienda.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['clientes/migrations/templates/'],
+        'DIRS': [BASE_DIR /"templates",],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -70,7 +70,7 @@ TEMPLATES = [
         },
     },
 ]
-
+LOGIN_REDIRECT_URL="menu"
 WSGI_APPLICATION = 'tienda.wsgi.application'
 
 
