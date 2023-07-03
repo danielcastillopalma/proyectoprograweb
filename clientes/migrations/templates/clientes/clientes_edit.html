@@ -35,7 +35,9 @@
 
       <ul>
         <li>
-          <a href="/clientes/index">VOLVER <i class="fa-solid fa-arrow-left"></i></a>
+          <a href="/clientes/index"
+            >VOLVER <i class="fa-solid fa-arrow-left"></i
+          ></a>
         </li>
         <li></li>
         <li></li>
@@ -52,7 +54,11 @@
       </ul>
     </nav>
     {%if cliente%}
-    <form class="form-register" action="{% url 'clientesUpdate'%}" method="POST">
+    <form
+      class="form-register"
+      action="{% url 'clientesUpdate'%}"
+      method="POST"
+    >
       {% csrf_token%}
       <div class="row">
         <input
@@ -102,9 +108,11 @@
               name="run"
               placeholder="RUN"
               value="{{cliente.rut}}"
+              readonly
+              tabindex="-1"
             />
           </div>
-          
+
           <div class="row">
             <input
               type="number"
@@ -125,8 +133,23 @@
           value="{{cliente.direccion}}"
         />
       </div>
+      <div class="row">
+        <select id="inputState" name="genero" class="form-control">
+          <option value="Genero" selected>Genero</option>
+          {%for genero in generos%} 
+            {% if genero.genero == cliente.id_genero.genero %}
+              <option value="{{genero.id_genero}}" selected>
+                {{genero.genero}}
+              </option>
+            {% else %}
+              <option value="{{genero.id_genero}}">{{genero.genero}}</option>
+            {%endif%} 
+          {%endfor%}
+        </select>
+      </div>
+
       <div class="mb-3 btnregister">
-        <button class="btn btn-light rounded-5 btnregister" type="submit">
+        <button class="btn btn-light rounded-5 btnregister" type="submit" >
           <i class="fa-light fa-id-card"></i> Actualizar
         </button>
       </div>
