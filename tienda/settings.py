@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'clientes',
     'bootstrap5',
     'fontawesome_free',
+    'bootstrap_datepicker_plus',
 ]
 
 MIDDLEWARE = [

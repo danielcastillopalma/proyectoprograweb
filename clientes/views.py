@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from .models import Cliente,Genero
+
 # Create your views here.
 def index(request):
     clientes = Cliente.objects.all()
@@ -24,7 +25,7 @@ def register(request):
     return render(request,'clientes/register.html',context)
 def crud(request):
     clientes=Cliente.objects.all()
-    context={'cliente':clientes}
+    context={'clientes':clientes}
     return render(request,'clientes/clientes_list.html',context)
 def clientes_del(request,pk):
     try:
@@ -67,6 +68,7 @@ def clientesAdd(request):
         genero=request.POST["genero"]
         telefono=request.POST["telefono"]
         email=request.POST["email"]
+        fechanacimiento=request.POST["fecnac"]
         direccion=request.POST["direccion"]
         password=request.POST["password"]
         activo="1"
@@ -78,7 +80,7 @@ def clientesAdd(request):
         password         =password,
         apellido_paterno =apaterno,
         apellido_materno =amaterno,
-        fecha_nacimiento ="1998-01-01",
+        fecha_nacimiento =fechanacimiento,
         id_genero        =objGenero,
         telefono         =telefono,
         email            =email,
@@ -102,6 +104,7 @@ def clientesReg(request):
         amaterno=request.POST["apmaterno"]
         genero=request.POST["genero"]
         telefono=request.POST["telefono"]
+        fechanacimiento=request.POST["fecnac"]
         email=request.POST["email"]
         direccion=request.POST["direccion"]
         password=request.POST["password"]
@@ -114,7 +117,7 @@ def clientesReg(request):
         password         =password,
         apellido_paterno =apaterno,
         apellido_materno =amaterno,
-        fecha_nacimiento ="1998-01-01",
+        fecha_nacimiento =fechanacimiento,
         id_genero        =objGenero,
         telefono         =telefono,
         email            =email,

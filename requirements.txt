@@ -2,3 +2,4 @@ Django==4.1.2
 fontawesome-free==5.15.4
 django-bootstrap-v5
 django-static-jquery==2.1.4
+django-bootstrap-datepicker-plus
