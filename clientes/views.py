@@ -19,11 +19,12 @@ def servicios(request):
     context={}
     return render(request,'clientes/servicios.html',context)
 def register(request):
-    context={}
+    generos=Genero.objects.all()
+    context={'generos':generos}
     return render(request,'clientes/register.html',context)
 def crud(request):
     clientes=Cliente.objects.all()
-    context={'clientes':clientes}
+    context={'cliente':clientes}
     return render(request,'clientes/clientes_list.html',context)
 def clientes_del(request,pk):
     try:
@@ -56,7 +57,6 @@ def clientesAdd(request):
     if request.method != "POST":
         generos=Genero.objects.all()
         context={'generos':generos}
-        context={'mensaje': "Ok, datos no grabados"}
         return render(request,'clientes/clientes_add.html',context)
 
     else:
@@ -92,8 +92,7 @@ def clientesAdd(request):
 def clientesReg(request):
     if request.method != "POST":
         generos=Genero.objects.all()
-        context={'generos':generos}
-        context={'mensaje': "Ok, datos no grabados"}
+        context={'genero':generos}
         return render(request,'clientes/register.html',context)
 
     else:

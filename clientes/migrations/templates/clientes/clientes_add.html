@@ -84,10 +84,10 @@
         <div class="row">
 
           <select id="inputState" name="genero" class="form-control">
-            <option selected>Genero</option>
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
+            <option value="Genero" selected>Genero</option>
+           {%for genero in generos%}
+            <option value="{{genero.id_genero}}">{{genero.genero}}</option>
+           {%endfor%}
           </select>
 
         </div>
