@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 
 from pathlib import Path
 import sys
+import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -31,17 +32,16 @@ sys.modules['fontawesome_free'] = __import__('fontawesome-free')
 # Application definition
 
 INSTALLED_APPS = [
+    'clientes',
+    'administrador',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'clientes',
-    'administrador',
     'bootstrap5',
     'fontawesome_free',
-    'bootstrap_datepicker_plus',
 ]
 
 MIDDLEWARE = [
@@ -59,7 +59,7 @@ ROOT_URLCONF = 'tienda.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR /"templates",],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -71,7 +71,9 @@ TEMPLATES = [
         },
     },
 ]
-LOGIN_REDIRECT_URL="menu"
+
+LOGIN_REDIRECT_URL = "menu"
+LOGOUT_REDIRECT_URL = "home"
 WSGI_APPLICATION = 'tienda.wsgi.application'
 
 
@@ -81,7 +83,7 @@ WSGI_APPLICATION = 'tienda.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
 
