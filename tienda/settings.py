@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'clientes',
+    'administrador',
     'bootstrap5',
     'fontawesome_free',
     'bootstrap_datepicker_plus',

@@ -18,5 +18,4 @@ urlpatterns =[
     path('clientes_findEdit/<str:pk>', views.clientes_findEdit, name='clientes_findEdit'),
     path('clientesUpdate', views.clientesUpdate, name='clientesUpdate'),
     
-    path("accounts/",include("django.contrib.auth.urls")),
 ]
