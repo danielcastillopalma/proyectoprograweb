@@ -10,7 +10,11 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
+    <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"
+  />
+  
     <link rel="shortcut icon" href="{% static 'img/logo.ico' %}" type="image/x-icon" />
     <title>Mecánica MBJ</title>
     <link
@@ -26,7 +30,7 @@
   <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 
-<body class="ccuarto" onload="cambiarLabelLogin()">
+<body class="ccuarto" >
     <!--
             Cabecera con menu y carrusel
         -->
@@ -42,12 +46,12 @@
      
         <ul>
           <li>
-            <a href=""><i class="fa-solid fa-house"></i></a>
+            <a href="{%url 'index'%}"><i class="fa-solid fa-house"></i></a>
           </li>
-          <li><a href="/clientes/repuestos">Repuestos</a></li>
-          <li><a href="/clientes/customizacion">Customización</a></li>
-          <li><a href="/clientes/servicios">Servicios</a></li>
-          <li><a href="#contacto">Contacto</a></li>
+          <li><a href="{%url 'repuestos'%}">Repuestos</a></li>
+          <li><a href="{%url 'customizacion'%}">Customización</a></li>
+          <li><a href="{%url 'servicios'%}">Servicios</a></li>
+          <li><a href="{%url 'index' %}#contacto">Contacto</a></li>
           <li></li>
           <li></li>
           <li></li>
@@ -129,7 +133,7 @@
                   <div class="row p-5 cprimario">
                     <div class="col-lg-3 col-xs-12 col-md-6 pt-5">
                       <a href="index" class="clink h4 logoimagen">
-                        <img src="img/logo.png" alt="" class="logo" /> Mecanica MBJ
+                        <img src="{% static 'img/logo.png' %}" alt="" class="logo" /> Mecanica MBJ
                       </a>
                     </div>
                     <div class="col-lg-3 col-xs-12 col-md-6">
@@ -181,7 +185,7 @@
                   </div>
                 </div>
               </footer>
-              <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+              <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
               <script
                 src="https://code.jquery.com/jquery-3.6.4.min.js"
                 integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8="

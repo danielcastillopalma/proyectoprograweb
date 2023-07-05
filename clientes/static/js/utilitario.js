@@ -1,10 +1,7 @@
 /*
 forms
 */
-function cambiarLabelLogin(){
-  document.getElementById("id_username").value="Usuario";
-  document.getElementById("id_password").value="Contraseña";
-}
+
 document.addEventListener("DOMContentLoaded", function () {
   document
     .getElementById("formulario")
@@ -65,4 +62,3 @@ $('#passwordLogin').on('focusout',function(){
   else
       $('#passwordLogin').addClass('is-invalid')
 });
-$('.dropdown-toggle').dropdown()
