@@ -22,12 +22,18 @@ class Cliente(models.Model):
 
     def __str__(self):
         return str(self.nombre)+" "+str(self.apellido_paterno)   
-
-class CategoriaProd(models.Model):
+class SubCategoriaProd(models.Model):
     id_categoria= models.AutoField(db_column='idCatProd',primary_key=True)
     categoria = models.CharField(max_length=50,blank=False,null=False)
     def __str__(self):
+        return str(self.categoria)   
+class CategoriaProd(models.Model):
+    id_categoria= models.AutoField(db_column='idCatProd',primary_key=True)
+    categoria = models.CharField(max_length=50,blank=False,null=False)
+    id_subCat        = models.ForeignKey('SubCategoriaProd',on_delete=models.CASCADE, db_column='SubCategoriaProd.idCatProd')
+    def __str__(self):
         return str(self.categoria)
+
 
 class Producto(models.Model):
     id_producto=models.AutoField(db_column='idProd',primary_key=True)
@@ -38,6 +44,8 @@ class Producto(models.Model):
     cantidad_paquete=models.CharField(default=0,max_length=50)
     valor_compra=models.IntegerField(default=0)
     valor_venta=models.IntegerField(default=0)
+    def __str__(self):
+        return str(self.nombre_producto) 
     
 
-    
+ 
