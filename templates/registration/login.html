@@ -19,7 +19,7 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 
-<body class="ccuarto">
+<body class="ccuarto" onload="cambiarLabelLogin()">
     <!--
             Cabecera con menu y carrusel
         -->
@@ -53,22 +53,11 @@
         <div class="container login cterciario row">
             <div class="container col-xs-12 col-lg-6">
                 <h1 class="ctitulo">Iniciar Sesión</h1>
-                <form id="loginForm">
+                <form method="post" class="loginForm">
                     {%csrf_token%}
-                    <div class="mb-3 ctitulo">
-                        <label for="exampleInputEmail1" class="form-label">Email address</label>
-                        <input type="text" class="form-control" id="correoLogin" name="correo" required>
-                    </div>
-                    <div class="mb-3 ctitulo">
-                        <label for="exampleInputPassword1" class="form-label">Password</label>
-                        <input type="password" class="form-control" id="passwordLogin" name="password" required>
-                    </div>
-                    <div class="mb-3 form-check ctitulo">
-                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                        <label class="form-check-label" for="exampleCheck1">Recordarme</label>
-                        <a href="" class="clink">¿Olvidó su contraseña?</a>
-                    </div>
+                    {{form.as_p}}
                     <button type="submit" class="btn btn-primary">Submit</button>
+                   
                 </form>
             </div>
 

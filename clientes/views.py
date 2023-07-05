@@ -2,6 +2,7 @@ from django.shortcuts import render
 from .models import Cliente, Genero
 from datetime import datetime
 from functools import wraps
+from administrador.forms import LoginForm
 import django.views.static
 
 # Create your views here.
@@ -40,7 +41,9 @@ def register(request):
     context = {'generos': generos}
     return render(request, 'clientes/register.html', context)
 
-
+def loginForm(request):
+    context={}    
+    return render(request, 'clientes/servicios.html', context)
 def crud(request):
     clientes = Cliente.objects.all()
     context = {'clientes': clientes}

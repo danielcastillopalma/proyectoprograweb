@@ -1,12 +1,16 @@
 /*
 forms
 */
-
+function cambiarLabelLogin(){
+  document.getElementById("id_username").value="Usuario";
+  document.getElementById("id_password").value="Contraseña";
+}
 document.addEventListener("DOMContentLoaded", function () {
   document
     .getElementById("formulario")
     .addEventListener("submit", validarFormulario);
 });
+
 
 function validarFormulario(evento) {
   evento.preventDefault();
