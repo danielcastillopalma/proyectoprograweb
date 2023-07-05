@@ -15,8 +15,11 @@
     integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
     crossorigin="anonymous"
   />
-  <script src="{% static 'fontawesomefree/js/all.min.js' %}"></script>
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+  />
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 
 <body class="ccuarto" onload="cambiarLabelLogin()">
@@ -28,13 +31,13 @@
         <label for="check" class="checkbtn">
             <i class="fas fa-bars"></i>
         </label>
-        <a href="/clientes/index" class="enlace clink">
+        <a href="{%url 'index'%}" class="enlace clink">
             <img src="{% static 'img/logo.png' %}" alt="" class="logo"> Mecanica MBJ
         </a>
 
         <ul>
 
-            <li><a href="index">VOLVER <i class='fa-solid fa-arrow-left'></i></a></li>
+            <li><a href="{%url 'index'%}">VOLVER <i class='fa-solid fa-arrow-left'></i></a></li>
             <li></li>
             <li></li>
             <li></li>
@@ -108,11 +111,11 @@
                     <h4 class="ctitulo">Enlaces</h4>
                     <div>
                         <ul>
-                            <li><a href="" class="clink">Inicio</a></li>
-                            <li><a href="" class="clink">Repuestos</a></li>
-                            <li><a href="" class="clink">Customización</a></li>
-                            <li><a href="" class="clink">Servicios</a></li>
-                            <li><a href="" class="clink">Contacto</a></li>
+                            <li><a href="{%url 'index'%}" class="clink">Inicio</a></li>
+                            <li><a href="{%url 'repuestos'%}" class="clink">Repuestos</a></li>
+                            <li><a href="{%url 'customizacion'%}" class="clink">Customización</a></li>
+                            <li><a href="{%url 'servicios'%}" class="clink">Servicios</a></li>
+                            <li><a href="{%url 'index' %}#contacto" class="clink">Contacto</a></li>
                         </ul>
                     </div>
                 </div>

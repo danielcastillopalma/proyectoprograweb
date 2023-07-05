@@ -65,3 +65,4 @@ $('#passwordLogin').on('focusout',function(){
   else
       $('#passwordLogin').addClass('is-invalid')
 });
+$('.dropdown-toggle').dropdown()

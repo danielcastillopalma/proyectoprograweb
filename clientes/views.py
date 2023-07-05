@@ -2,7 +2,6 @@ from django.shortcuts import render
 from .models import Cliente, Genero
 from datetime import datetime
 from functools import wraps
-from administrador.forms import LoginForm
 import django.views.static
 
 # Create your views here.
@@ -12,6 +11,8 @@ def index(request):
     clientes = Cliente.objects.all()
     context = {"clientes": clientes}
     return render(request, 'clientes/index.html', context)
+
+
 
 
 def login(request):

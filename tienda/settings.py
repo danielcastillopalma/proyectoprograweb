@@ -73,7 +73,7 @@ TEMPLATES = [
 ]
 
 LOGIN_REDIRECT_URL = "menu"
-LOGOUT_REDIRECT_URL = "home"
+LOGOUT_REDIRECT_URL = "index"
 WSGI_APPLICATION = 'tienda.wsgi.application'
 
 
