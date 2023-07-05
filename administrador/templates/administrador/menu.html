@@ -4,7 +4,8 @@
 <html lang="es">
   <head>
     {%if not user.is_superuser%}
-    <meta http-equiv="Refresh" content="0; url='{%url 'logout'%}'" />
+
+    <meta http-equiv="Refresh" content="0; url='{%url 'index'%}'" />
     {%endif%}
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />

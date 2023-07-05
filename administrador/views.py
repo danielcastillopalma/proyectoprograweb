@@ -10,12 +10,12 @@ def admin_check(user):
   
 
 @login_required
-
 def menu(request):
     request.session["usuario"]=request.user.username
     usuario=request.session["usuario"]
     context = {'usuario':usuario}
     return render(request, 'administrador/menu.html', context)
+
 
 
 

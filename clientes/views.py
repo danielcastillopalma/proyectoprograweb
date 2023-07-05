@@ -8,11 +8,10 @@ import django.views.static
 
 
 def index(request):
-    clientes = Cliente.objects.all()
-    context = {"clientes": clientes}
+    request.session["usuario"] = request.user.username
+    usuario = request.session["usuario"]
+    context = {'usuario': usuario}
     return render(request, 'clientes/index.html', context)
-
-
 
 
 def login(request):
@@ -31,7 +30,6 @@ def repuestos(request):
     return render(request, 'clientes/repuestos.html', context)
 
 
-
 def servicios(request):
     context = {}
     return render(request, 'clientes/servicios.html', context)
@@ -42,9 +40,12 @@ def register(request):
     context = {'generos': generos}
     return render(request, 'clientes/register.html', context)
 
+
 def loginForm(request):
-    context={}    
+    context = {}
     return render(request, 'clientes/servicios.html', context)
+
+
 def crud(request):
     clientes = Cliente.objects.all()
     context = {'clientes': clientes}
