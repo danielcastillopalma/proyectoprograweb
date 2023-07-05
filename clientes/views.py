@@ -3,6 +3,8 @@ from .models import Cliente, Genero
 from datetime import datetime
 from functools import wraps
 import django.views.static
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
 
 # Create your views here.
 
@@ -44,8 +46,13 @@ def register(request):
 def loginForm(request):
     context = {}
     return render(request, 'clientes/servicios.html', context)
+def admin_check(user):
+    if user.username=="admin":
+        return True
+    else:
+      return False
 
-
+@login_required
 def crud(request):
     clientes = Cliente.objects.all()
     context = {'clientes': clientes}
@@ -122,7 +129,7 @@ def clientesAdd(request):
 def clientesReg(request):
     if request.method != "POST":
         generos = Genero.objects.all()
-        context = {'genero': generos}
+        context = {'generos': generos}
         return render(request, 'clientes/register.html', context)
 
     else:
@@ -151,9 +158,20 @@ def clientesReg(request):
             email=email,
             direccion=direccion,
             activo=1)
+        objUser= User.objects.create_user(
+            password=password,
+            is_superuser="0",
+            username=email,
+            last_name=apaterno,
+            email=email,
+            is_staff="0",
+            is_active="1",
+            date_joined=datetime.now(),
+            first_name=nombre
+        )
         obj.save()
         context = {'mensaje': "Ok, datos grabados"}
-        return render(request, 'clientes/login.html', context)
+        return render(request, ('registration/login.html'), context)
 
 
 def clientesUpdate(request):
