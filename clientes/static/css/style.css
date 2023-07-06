@@ -142,6 +142,7 @@ CONFIGURACIÓN DE CLASES
   align-items: center;
   text-align: center;
 }
+
 .paginacion {
   display: flex;
   flex-direction: column;
@@ -214,6 +215,12 @@ CONFIGURACIÓN DE CLASES
   flex-direction: column;
   align-items: center;
   height: 100%;
+}
+.repcontainer{
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .btnregister {
   width: 100%;

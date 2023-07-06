@@ -28,7 +28,8 @@ def customizacion(request):
 
 def repuestos(request):
     clientes = Cliente.objects.all()
-    context = {}
+    productos=Producto.objects.all()
+    context = {'productos':productos}
     return render(request, 'clientes/repuestos.html', context)
 
 

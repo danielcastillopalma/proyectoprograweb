@@ -1,47 +1,52 @@
-{%extends "clientes/base.html"%}
-{%load static%}
-{%block title%}Inicio{%endblock%}
-{%block content%}
-    <div class="row h1tienda csecundario">
-      <h1>Repuestos</h1>
-    </div>
+{%extends "clientes/base.html"%} {%load static%} 
+{%block title%}Inicio{%endblock%} {%block content%}
+<div class="row h1tienda csecundario">
+  <h1>Repuestos</h1>
+</div>
+<div class="productosRepuestos row" id="contenedorProdRep">
+{%if productos%}
+{%for x in productos%}
+<div class="card" style="width: 18rem;">
+  <img src="..." class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">{{x.nombre_producto}}</h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div>
+{%endfor%}
+{%endif%}
 
-    <div class="contacto container"></div>
-    <div class="productosRepuestos row" id="contenedorProdRep"></div>
+</div>
 
-    <div class="paginacion">
-      <div class="pagination">
-        <div class="page-item">
-          <a
-            class="page-link"
-            href="#"
-            onclick="pagDown()"
-            aria-label="Previous"
-          >
-            <span aria-hidden="true">&laquo;</span>
-          </a>
-        </div>
-        <div class="page-item">
-          <a class="page-link p1 activo" href="repuestos">1</a>
-        </div>
-        <div class="page-item">
-          <a class="page-link p2 activo" href="#" onclick="page2()">2</a>
-        </div>
-        <div class="page-item">
-          <a class="page-link p3 activo" href="#" onclick="page3()">3</a>
-        </div>
-        <div class="page-item">
-          <a
-            id="up"
-            class="page-link"
-            onclick="pagUp()"
-            num="1"
-            href="#"
-            aria-label="Next"
-          >
-            <span aria-hidden="true">&raquo;</span>
-          </a>
-        </div>
-      </div>
+<div class="paginacion">
+  <div class="pagination">
+    <div class="page-item">
+      <a class="page-link" href="#" onclick="pagDown()" aria-label="Previous">
+        <span aria-hidden="true">&laquo;</span>
+      </a>
     </div>
-    {%endblock%}
+    <div class="page-item">
+      <a class="page-link p1 activo" href="repuestos">1</a>
+    </div>
+    <div class="page-item">
+      <a class="page-link p2 activo" href="#" onclick="page2()">2</a>
+    </div>
+    <div class="page-item">
+      <a class="page-link p3 activo" href="#" onclick="page3()">3</a>
+    </div>
+    <div class="page-item">
+      <a
+        id="up"
+        class="page-link"
+        onclick="pagUp()"
+        num="1"
+        href="#"
+        aria-label="Next"
+      >
+        <span aria-hidden="true">&raquo;</span>
+      </a>
+    </div>
+  </div>
+</div>
+{%endblock%}

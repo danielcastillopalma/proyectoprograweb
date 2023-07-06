@@ -44,6 +44,7 @@ class Producto(models.Model):
     cantidad_paquete=models.CharField(default=0,max_length=50)
     valor_compra=models.IntegerField(default=0)
     valor_venta=models.IntegerField(default=0)
+    img_prod=models.ImageField(upload_to='static/img',null=True)
     id_cat= models.ForeignKey('CategoriaProd',on_delete=models.CASCADE, db_column='idCatProd',default=1)
   
     def __str__(self):
