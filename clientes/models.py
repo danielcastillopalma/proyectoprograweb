@@ -30,7 +30,7 @@ class SubCategoriaProd(models.Model):
 class CategoriaProd(models.Model):
     id_categoria= models.AutoField(db_column='idCatProd',primary_key=True)
     categoria = models.CharField(max_length=50,blank=False,null=False)
-    id_subCat        = models.ForeignKey('SubCategoriaProd',on_delete=models.CASCADE, db_column='SubCategoriaProd.idCatProd')
+    id_subCat= models.ForeignKey('SubCategoriaProd',on_delete=models.CASCADE, db_column='SubCategoriaProd.idCatProd')
     def __str__(self):
         return str(self.categoria)
 
@@ -44,6 +44,8 @@ class Producto(models.Model):
     cantidad_paquete=models.CharField(default=0,max_length=50)
     valor_compra=models.IntegerField(default=0)
     valor_venta=models.IntegerField(default=0)
+    id_cat= models.ForeignKey('CategoriaProd',on_delete=models.CASCADE, db_column='idCatProd',default=1)
+  
     def __str__(self):
         return str(self.nombre_producto) 
     
