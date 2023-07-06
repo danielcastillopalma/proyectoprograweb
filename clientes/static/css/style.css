@@ -209,6 +209,14 @@ CONFIGURACIÓN DE CLASES
   justify-content: center;
   align-items: center;
 }
+.formEditProd{
+  padding: 0% 7% 5% 7%;
+}
+.formEditProd input{
+  padding: 1%;
+  width: 100%;
+  margin-bottom: 1%;
+}
 .register {
   justify-content: center;
   display: flex;

@@ -228,28 +228,26 @@ def crud_prod(request):
 
 def productos_del(request, pk):
     try:
-        cliente = Cliente.objects.get(rut=pk)
+        producto = Producto.objects.get(id_producto=pk)
 
-        cliente.delete()
+        producto.delete()
         mensaje = "Registro Eliminado"
-        clientes = Cliente.objects.all()
-        context = {'clientes': clientes, 'mensaje': mensaje}
-        return render(request, 'clientes/clientes_list.html', context)
+        productos = Producto.objects.all()
+        context = {'productos': productos, 'mensaje': mensaje}
+        return render(request, 'clientes/productos_list.html', context)
     except:
         mensaje = "Error, rut no existe"
-        clientes = Cliente.objects.all()
-        context = {'clientes': clientes, 'mensaje': mensaje}
-        return render(request, 'clientes/clientes_list.html', context)
+        productos = Producto.objects.all()
+        context = {'productos': productos, 'mensaje': mensaje}
+        return render(request, 'clientes/productos_list.html', context)
 
 
 def productos_findEdit(request, pk):
     if pk != "":
-        cliente = Cliente.objects.get(rut=pk)
-        generos = Genero.objects.all()
-        print(type(cliente.id_genero.genero))
-        context = {'cliente': cliente, 'generos': generos}
-        if cliente:
-            return render(request, 'clientes/clientes_edit.html', context)
+        producto = Producto.objects.get(id_producto=pk)
+        context = {'producto': producto}
+        if producto:
+            return render(request, 'clientes/productos_edit.html', context)
         else:
             context = {'error'}
             return render(request, 'clientes/clientes_list.html', context)

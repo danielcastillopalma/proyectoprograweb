@@ -75,6 +75,10 @@
           <td>{{x.id_producto}}</td>
           <td>{{x.nombre_producto}}</td>
           <td>{{x.marca_producto}}</td>
+          <td><a href="{% url 'productos_del' pk=x.id_producto %}">eliminar</a></td>
+          <td>
+            <a href="{% url 'productos_findEdit' pk=x.id_producto%}">modificar</a>
+          </td>
         </tr>
         {%endfor%} {%endif%}
       </table>

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="es">
+  <head>
+    {%if not user.is_superuser%}
+
+    <meta http-equiv="Refresh" content="0; url='{%url 'index'%}'" />
+    {%endif%}
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      rel="shortcut icon"
+      href="{% static 'img/logo.ico' %}"
+      type="image/x-icon"
+    />
+    <title>Mecánica MBJ</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+      crossorigin="anonymous"
+    />
+    <script src="{% static 'fontawesomefree/js/all.min.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+  </head>
+
+  <body class="ccuarto">
+    <nav class="cprimario">
+      <input type="checkbox" id="check" />
+      <label for="check" class="checkbtn">
+        <i class="fas fa-bars"></i>
+      </label>
+      <a href="/clientes/index" class="enlace clink">
+        <img src="{% static 'img/logo.png' %}" alt="" class="logo" /> Mecanica
+        MBJ
+      </a>
+
+      <ul>
+        <li>
+          <a href="/clientes/index"
+            >VOLVER <i class="fa-solid fa-arrow-left"></i
+          ></a>
+        </li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+
+        <li></li>
+      </ul>
+    </nav>
+    <h1>Edición de Productos</h1>
+    {%if producto%} {% csrf_token%}
+    <div class="formEditProd">
+      <form action="">
+        <div class="row">
+          <div class="col">
+            <input
+              type="text"
+              placeholder="id"
+              value="{{producto.id_producto}}"
+              disabled
+            />
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col">
+            <input
+              type="text"
+              placeholder="nombre"
+              value="{{producto.nombre_producto}}"
+            />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <input
+              type="text"
+              placeholder="marca"
+              value="{{producto.marca_producto}}"
+            />
+          </div>
+          <div class="col">
+            <input
+              type="text"
+              placeholder="upc"
+              value="{{producto.upc_producto}}"
+            />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <input
+              type="text"
+              placeholder="Cantidad paquete:"
+              value="{{producto.cantidad_paquete}}"
+            />
+          </div>
+
+          <div class="col">
+            <input type="text" placeholder="valor:" />
+          </div>
+          <div class="col"><input type="text" placeholder="valor2:" /></div>
+        </div>
+
+        <div class="row"><input type="file" /></div>
+      </form>
+    </div>
+    {%endif%}
+
+    <footer>
+      <!--
+           Footer
+       -->
+      <div class="container-fluid">
+        <div class="row p-5 cprimario">
+          <div class="col-lg-3 col-xs-12 col-md-6 pt-5">
+            <a href="index" class="clink h4 logoimagen">
+              <img src="img/logo.png" alt="" class="logo" /> Mecanica MBJ
+            </a>
+          </div>
+          <div class="col-lg-3 col-xs-12 col-md-6">
+            <h4 class="ctitulo">Enlaces</h4>
+            <div>
+              <ul>
+                <li><a href="" class="clink">Inicio</a></li>
+                <li><a href="" class="clink">Repuestos</a></li>
+                <li><a href="" class="clink">Customización</a></li>
+                <li><a href="" class="clink">Servicios</a></li>
+                <li><a href="" class="clink">Contacto</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-lg-3 col-xs-12 col-md-6"></div>
+          <div class="col-lg-3 col-xs-12 col-md-6">
+            <h4 class="ctitulo">Redes sociales</h4>
+            <div class="flex-container clink">
+              <a href="https://www.instagram.com" class="clink"
+                ><i class="fa-brands fa-instagram"></i
+              ></a>
+              <a href="https://www.facebook.com" class="clink"
+                ><i class="fa-brands fa-facebook"></i
+              ></a>
+              <a href="https://www.twitter.com" class="clink"
+                ><i class="fa-brands fa-twitter"></i
+              ></a>
+              <a href="https://www.linkedin.com" class="clink"
+                ><i class="fa-brands fa-linkedin"></i
+              ></a>
+              <a href="https://www.whatsapp.com" class="clink"
+                ><i class="fa-brands fa-whatsapp"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-12 cprimario p-1 ctitulo" id="copyright">
+          <p>Todos los derechos reservados</p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
