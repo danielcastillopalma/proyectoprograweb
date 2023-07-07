@@ -63,10 +63,12 @@
       <form action="">
         <div class="row">
           <div class="col">
+            <label for="id_prod" id="lblFormEditProd">Id Producto:</label>
             <input
               type="text"
               placeholder="id"
               value="{{producto.id_producto}}"
+              name="id_prod"
               disabled
             />
           </div>
@@ -74,45 +76,94 @@
 
         <div class="row">
           <div class="col">
+            <label for="nombre_prod" id="lblFormEditProd"
+              >Nombre Producto:</label
+            >
             <input
               type="text"
               placeholder="nombre"
+              name="nombre_prod"
               value="{{producto.nombre_producto}}"
             />
           </div>
         </div>
         <div class="row">
           <div class="col">
+            <label for="marca" id="lblFormEditProd">Marca:</label>
             <input
               type="text"
               placeholder="marca"
+              name="marca"
               value="{{producto.marca_producto}}"
             />
           </div>
           <div class="col">
+            <label for="upc" id="lblFormEditProd">UPC:</label>
             <input
               type="text"
               placeholder="upc"
+              name="upc"
               value="{{producto.upc_producto}}"
             />
           </div>
         </div>
         <div class="row">
           <div class="col">
+            <label for="cant_paquete" id="lblFormEditProd"
+              >Cantidad por paquete:</label
+            >
             <input
               type="text"
               placeholder="Cantidad paquete:"
+              name="cant_paquete"
               value="{{producto.cantidad_paquete}}"
             />
           </div>
-
           <div class="col">
-            <input type="text" placeholder="valor:" />
+            <label for="valor_compra" id="lblFormEditProd"
+              >Valor de Compra:</label
+            >
+            <input
+              type="text"
+              placeholder="compra:"
+              name="valor_compra"
+              value="{{productos.valor_compra}}"
+            />
           </div>
-          <div class="col"><input type="text" placeholder="valor2:" /></div>
+          <div class="col">
+            <label for="valor_venta" id="lblFormEditProd"
+              >Valor de Venta:</label
+            >
+            <input
+              type="text"
+              placeholder="venta:"
+              name="valor_venta"
+              value="{{productos.valor_venta}}"
+            />
+          </div>
+          <div class="col">
+            <label for="stock" id="lblFormEditProd">Stock:</label>
+            <input
+              type="text"
+              placeholder="Stock:"
+              name="stock"
+              value="{{producto.stock}}"
+            />
+          </div>
         </div>
-
-        <div class="row"><input type="file" /></div>
+        <div class="row">
+          <div class="col">
+            <label for="img_prod" id="lblFormEditProd"
+              >Imagen de Producto:</label
+            >
+            <input name="img_prod" type="file" />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <input name="img_prod" type="submit" value="Actualizar Producto" />
+          </div>
+        </div>
       </form>
     </div>
     {%endif%}
