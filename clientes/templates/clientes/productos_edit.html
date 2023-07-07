@@ -58,9 +58,10 @@
       </ul>
     </nav>
     <h1>Edición de Productos</h1>
-    {%if producto%} {% csrf_token%}
+    {%if producto%} 
     <div class="formEditProd">
-      <form action="">
+      <form method="post" action="{% url 'productosUpdate'%}" enctype="multipart/form-data">
+        {% csrf_token%} 
         <div class="row">
           <div class="col">
             <label for="id_prod" id="lblFormEditProd">Id Producto:</label>
@@ -69,7 +70,7 @@
               placeholder="id"
               value="{{producto.id_producto}}"
               name="id_prod"
-              disabled
+              readonly
             />
           </div>
         </div>
@@ -127,7 +128,7 @@
               type="text"
               placeholder="compra:"
               name="valor_compra"
-              value="{{productos.valor_compra}}"
+              value="{{producto.valor_compra}}"
             />
           </div>
           <div class="col">
@@ -138,7 +139,7 @@
               type="text"
               placeholder="venta:"
               name="valor_venta"
-              value="{{productos.valor_venta}}"
+              value="{{producto.valor_venta}}"
             />
           </div>
           <div class="col">
@@ -161,7 +162,7 @@
         </div>
         <div class="row">
           <div class="col">
-            <input name="img_prod" type="submit" value="Actualizar Producto" />
+            <input name="btnActualziar" type="submit" value="Actualizar Producto" />
           </div>
         </div>
       </form>

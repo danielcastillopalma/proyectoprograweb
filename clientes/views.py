@@ -293,43 +293,37 @@ def productosAdd(request):
 
 def productosUpdate(request):
     if request.method == "POST":
-        rut = request.POST["run"]
-        nombre = request.POST["nombre"]
-        apaterno = request.POST["apaterno"]
-        amaterno = request.POST["apmaterno"]
-        genero = request.POST["genero"]
-        telefono = request.POST["telefono"]
-        email = request.POST["email"]
-        direccion = request.POST["direccion"]
-        activo = "1"
+        id_prod= request.POST["id_prod"]
+        nombre_prod = request.POST["nombre_prod"]
+        marca = request.POST["marca"]
+        upc = request.POST["upc"]
+        cant_paquete = request.POST["cant_paquete"]
+        valor_compra = request.POST["valor_compra"]
+        valor_venta = request.POST["valor_venta"]
+        stock = request.POST["stock"]
+        img_prod = request.FILES.get("img_prod")
 
-        pk = Cliente.objects.get(rut=rut)
-        password = pk.password
-        fecnac = pk.fecha_nacimiento
-        objGenero = Genero.objects.get(id_genero=genero)
 
-        cliente = Cliente()
-        cliente.rut = rut
-        cliente.nombre = nombre
-        cliente.apellido_paterno = apaterno
-        cliente.apellido_materno = amaterno
-        cliente.telefono = telefono
-        cliente.id_genero = objGenero
-        cliente.password = password
-        cliente.email = email
-        cliente.fecha_nacimiento = fecnac
-        cliente.direccion = direccion
-        cliente.activo = 1
-        cliente.save()
-        generos = Genero.objects.all()
-        clientes = Cliente.objects.all()
+        pk = Producto.objects.get(id_producto=id_prod)
+        producto = Producto()
+        producto.id_producto = pk.id_producto
+        producto.nombre_producto = nombre_prod
+        producto.marca_producto = marca
+        producto.upc_producto = upc
+        producto.cantidad_paquete = cant_paquete
+        producto.valor_compra = valor_compra
+        producto.valor_venta = valor_venta
+        producto.stock = stock
+        producto.img_prod = img_prod
+        producto.save()
+        productos = Producto.objects.all()
         context = {'mensaje': "Datos actualizados",
-                   'generos': generos, 'clientes': clientes}
-        return render(request, 'clientes/clientes_list.html', context)
+                    'productos': productos}
+        return render(request, 'clientes/productos_list.html', context)
     else:
-        clientes = Cliente.objects.all()
-        context = {'clientes': clientes}
-        return render(request, 'clientes/clientes_list.html', context)
+        productos = Producto.objects.all()
+        context = {'productos': productos}
+        return render(request, 'clientes/productos_list.html', context)
 
 
 def no_cache_static(f):
