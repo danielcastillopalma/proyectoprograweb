@@ -46,6 +46,7 @@ class Producto(models.Model):
     valor_venta=models.IntegerField(default=0)
     img_prod=models.ImageField(upload_to='productos',null=True)
     id_cat= models.ForeignKey('CategoriaProd',on_delete=models.CASCADE, db_column='idCatProd',default=1)
+    stock=models.IntegerField(default=0)
   
     def __str__(self):
         return str(self.nombre_producto) 
