@@ -6,47 +6,52 @@ import django.views.static
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 
+
 # Create your views here.
+def sumarProdBoleta(request):
+        idProd = request.POST["idProdu"]
+        context = {}
+        return render(request, "clientes/index.html", context)
 
 
 def index(request):
     request.session["usuario"] = request.user.username
     usuario = request.session["usuario"]
-    context = {'usuario': usuario}
-    return render(request, 'clientes/index.html', context)
+    context = {"usuario": usuario}
+    return render(request, "clientes/index.html", context)
 
 
 def login(request):
     context = {}
-    return render(request, 'clientes/login.html', context)
+    return render(request, "clientes/login.html", context)
 
 
 def customizacion(request):
     context = {}
-    return render(request, 'clientes/customizacion.html', context)
+    return render(request, "clientes/customizacion.html", context)
 
 
 def repuestos(request):
     clientes = Cliente.objects.all()
-    productos=Producto.objects.all()
-    context = {'productos':productos}
-    return render(request, 'clientes/repuestos.html', context)
+    productos = Producto.objects.all()
+    context = {"productos": productos}
+    return render(request, "clientes/repuestos.html", context)
 
 
 def servicios(request):
     context = {}
-    return render(request, 'clientes/servicios.html', context)
+    return render(request, "clientes/servicios.html", context)
 
 
 def register(request):
     generos = Genero.objects.all()
-    context = {'generos': generos}
-    return render(request, 'clientes/register.html', context)
+    context = {"generos": generos}
+    return render(request, "clientes/register.html", context)
 
 
 def loginForm(request):
     context = {}
-    return render(request, 'clientes/servicios.html', context)
+    return render(request, "clientes/servicios.html", context)
 
 
 def admin_check(user):
@@ -59,8 +64,8 @@ def admin_check(user):
 @login_required
 def crud(request):
     clientes = Cliente.objects.all()
-    context = {'clientes': clientes}
-    return render(request, 'clientes/clientes_list.html', context)
+    context = {"clientes": clientes}
+    return render(request, "clientes/clientes_list.html", context)
 
 
 def clientes_del(request, pk):
@@ -70,13 +75,13 @@ def clientes_del(request, pk):
         cliente.delete()
         mensaje = "Registro Eliminado"
         clientes = Cliente.objects.all()
-        context = {'clientes': clientes, 'mensaje': mensaje}
-        return render(request, 'clientes/clientes_list.html', context)
+        context = {"clientes": clientes, "mensaje": mensaje}
+        return render(request, "clientes/clientes_list.html", context)
     except:
         mensaje = "Error, rut no existe"
         clientes = Cliente.objects.all()
-        context = {'clientes': clientes, 'mensaje': mensaje}
-        return render(request, 'clientes/clientes_list.html', context)
+        context = {"clientes": clientes, "mensaje": mensaje}
+        return render(request, "clientes/clientes_list.html", context)
 
 
 def clientes_findEdit(request, pk):
@@ -84,19 +89,19 @@ def clientes_findEdit(request, pk):
         cliente = Cliente.objects.get(rut=pk)
         generos = Genero.objects.all()
         print(type(cliente.id_genero.genero))
-        context = {'cliente': cliente, 'generos': generos}
+        context = {"cliente": cliente, "generos": generos}
         if cliente:
-            return render(request, 'clientes/clientes_edit.html', context)
+            return render(request, "clientes/clientes_edit.html", context)
         else:
-            context = {'error'}
-            return render(request, 'clientes/clientes_list.html', context)
+            context = {"error"}
+            return render(request, "clientes/clientes_list.html", context)
 
 
 def clientesAdd(request):
     if request.method != "POST":
         generos = Genero.objects.all()
-        context = {'generos': generos}
-        return render(request, 'clientes/clientes_add.html', context)
+        context = {"generos": generos}
+        return render(request, "clientes/clientes_add.html", context)
 
     else:
         rut = request.POST["run"]
@@ -123,18 +128,19 @@ def clientesAdd(request):
             telefono=telefono,
             email=email,
             direccion=direccion,
-            activo=1)
+            activo=1,
+        )
         obj.save()
         clientes = Cliente.objects.all()
-        context = {'clientes': clientes}
-        return render(request, 'clientes/clientes_list.html', context)
+        context = {"clientes": clientes}
+        return render(request, "clientes/clientes_list.html", context)
 
 
 def clientesReg(request):
     if request.method != "POST":
         generos = Genero.objects.all()
-        context = {'generos': generos}
-        return render(request, 'clientes/register.html', context)
+        context = {"generos": generos}
+        return render(request, "clientes/register.html", context)
 
     else:
         rut = request.POST["run"]
@@ -161,7 +167,8 @@ def clientesReg(request):
             telefono=telefono,
             email=email,
             direccion=direccion,
-            activo=1)
+            activo=1,
+        )
         objUser = User.objects.create_user(
             password=password,
             is_superuser="0",
@@ -171,11 +178,11 @@ def clientesReg(request):
             is_staff="0",
             is_active="1",
             date_joined=datetime.now(),
-            first_name=nombre
+            first_name=nombre,
         )
         obj.save()
-        context = {'mensaje': "Ok, datos grabados"}
-        return render(request, ('registration/login.html'), context)
+        context = {"mensaje": "Ok, datos grabados"}
+        return render(request, ("registration/login.html"), context)
 
 
 def clientesUpdate(request):
@@ -210,20 +217,23 @@ def clientesUpdate(request):
         cliente.save()
         generos = Genero.objects.all()
         clientes = Cliente.objects.all()
-        context = {'mensaje': "Datos actualizados",
-                   'generos': generos, 'clientes': clientes}
-        return render(request, 'clientes/clientes_list.html', context)
+        context = {
+            "mensaje": "Datos actualizados",
+            "generos": generos,
+            "clientes": clientes,
+        }
+        return render(request, "clientes/clientes_list.html", context)
     else:
         clientes = Cliente.objects.all()
-        context = {'clientes': clientes}
-        return render(request, 'clientes/clientes_list.html', context)
+        context = {"clientes": clientes}
+        return render(request, "clientes/clientes_list.html", context)
 
 
 @login_required
 def crud_prod(request):
     productos = Producto.objects.all()
-    context = {'productos': productos}
-    return render(request, 'clientes/productos_list.html', context)
+    context = {"productos": productos}
+    return render(request, "clientes/productos_list.html", context)
 
 
 def productos_del(request, pk):
@@ -233,31 +243,31 @@ def productos_del(request, pk):
         producto.delete()
         mensaje = "Registro Eliminado"
         productos = Producto.objects.all()
-        context = {'productos': productos, 'mensaje': mensaje}
-        return render(request, 'clientes/productos_list.html', context)
+        context = {"productos": productos, "mensaje": mensaje}
+        return render(request, "clientes/productos_list.html", context)
     except:
         mensaje = "Error, rut no existe"
         productos = Producto.objects.all()
-        context = {'productos': productos, 'mensaje': mensaje}
-        return render(request, 'clientes/productos_list.html', context)
+        context = {"productos": productos, "mensaje": mensaje}
+        return render(request, "clientes/productos_list.html", context)
 
 
 def productos_findEdit(request, pk):
     if pk != "":
         producto = Producto.objects.get(id_producto=pk)
-        context = {'producto': producto}
+        context = {"producto": producto}
         if producto:
-            return render(request, 'clientes/productos_edit.html', context)
+            return render(request, "clientes/productos_edit.html", context)
         else:
-            context = {'error'}
-            return render(request, 'clientes/clientes_list.html', context)
+            context = {"error"}
+            return render(request, "clientes/clientes_list.html", context)
 
 
 def productosAdd(request):
     if request.method != "POST":
         generos = Genero.objects.all()
-        context = {'generos': generos}
-        return render(request, 'clientes/clientes_add.html', context)
+        context = {"generos": generos}
+        return render(request, "clientes/clientes_add.html", context)
 
     else:
         rut = request.POST["run"]
@@ -284,16 +294,17 @@ def productosAdd(request):
             telefono=telefono,
             email=email,
             direccion=direccion,
-            activo=1)
+            activo=1,
+        )
         obj.save()
         clientes = Cliente.objects.all()
-        context = {'clientes': clientes}
-        return render(request, 'clientes/clientes_list.html', context)
+        context = {"clientes": clientes}
+        return render(request, "clientes/clientes_list.html", context)
 
 
 def productosUpdate(request):
     if request.method == "POST":
-        id_prod= request.POST["id_prod"]
+        id_prod = request.POST["id_prod"]
         nombre_prod = request.POST["nombre_prod"]
         marca = request.POST["marca"]
         upc = request.POST["upc"]
@@ -302,7 +313,6 @@ def productosUpdate(request):
         valor_venta = request.POST["valor_venta"]
         stock = request.POST["stock"]
         img_prod = request.FILES.get("img_prod")
-
 
         pk = Producto.objects.get(id_producto=id_prod)
         producto = Producto()
@@ -317,13 +327,12 @@ def productosUpdate(request):
         producto.img_prod = img_prod
         producto.save()
         productos = Producto.objects.all()
-        context = {'mensaje': "Datos actualizados",
-                    'productos': productos}
-        return render(request, 'clientes/productos_list.html', context)
+        context = {"mensaje": "Datos actualizados", "productos": productos}
+        return render(request, "clientes/productos_list.html", context)
     else:
         productos = Producto.objects.all()
-        context = {'productos': productos}
-        return render(request, 'clientes/productos_list.html', context)
+        context = {"productos": productos}
+        return render(request, "clientes/productos_list.html", context)
 
 
 def no_cache_static(f):

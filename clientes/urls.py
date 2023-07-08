@@ -5,6 +5,8 @@ from . import views
 
 
 urlpatterns =[
+    path('sumarProdBoleta',views.sumarProdBoleta,name='sumarProdBoleta'),
+
     path('index',views.index,name='index'),
     path('customizacion',views.customizacion,name='customizacion'),
     path('login',views.login,name='login'), 

@@ -57,4 +57,3 @@ class Boleta(models.Model):
     num_cliente= models.ForeignKey('Cliente',on_delete=models.CASCADE, db_column='rut')
     monto_boleta=models.IntegerField(default=0,null=False)
     activa=models.IntegerField()
- 

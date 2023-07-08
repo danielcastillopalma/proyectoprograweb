@@ -1,27 +1,34 @@
-{%extends "clientes/base.html"%} {%load static%} 
+{%extends "clientes/base.html"%} {%load static%}
 {%block title%}Inicio{%endblock%} {%block content%}
 <div class="row h1tienda csecundario">
   <h1>Repuestos</h1>
 </div>
 <div class="productosRepuestos row" id="contenedorProdRep">
-{%if productos%}
-{%for x in productos%}
-<div class="card" style="width: 18rem;">
-  {%if x.img_prod%}
-  <img src="{{ x.img_prod.url }}" class="card-img-top" alt="...">
-  {%endif%}
-  <div class="card-body">
-    <h6 class="card-title">{{x.nombre_producto}}</h6>
-    <p class="card-title">{{x.cantidad_paquete}} Unidad/es</p>
-    {%if x.marca_producto%}
-    <h5 class="card-title">Marca: {{x.marca_producto}}</h5>
-    {%endif%}
-    <h4 class="card-text">${{x.valor_venta}}</h4>
-    <a href="#" class="btn btn-primary">Agregar  <i class="fa-solid fa-cart-shopping"></i> </a>
+  {%if productos%}
+  {%for x in productos%}
+  <div class="card" style="width: 18rem;">
+
+    <form action="sumarProdBoleta">
+      {%if x.img_prod%}
+      <img src="{{ x.img_prod.url }}" class="card-img-top" alt="...">
+      {%endif%}
+      <div class="card-body">
+        <h6 class="card-title">{{x.nombre_producto}}</h6>
+        <p class="card-title">{{x.cantidad_paquete}} Unidad/es</p>
+        {%if x.marca_producto%}
+        <h5 class="card-title">Marca: {{x.marca_producto}}</h5>
+        {%endif%}
+        <h4 class="card-text">${{x.valor_venta}}</h4>
+        <a href="{%url 'sumarProdBoleta'%}" class="btn btn-primary" type="submit">Agregar <i
+            class="fa-solid fa-cart-shopping"></i>
+        </a>
+        <p name="idProdu" hidden>{{x.id_producto}}</p>
+      </div>
+    </form>
   </div>
-</div>
-{%endfor%}
-{%endif%}
+
+  {%endfor%}
+  {%endif%}
 
 </div>
 
@@ -42,14 +49,7 @@
       <a class="page-link p3 activo" href="#" onclick="page3()">3</a>
     </div>
     <div class="page-item">
-      <a
-        id="up"
-        class="page-link"
-        onclick="pagUp()"
-        num="1"
-        href="#"
-        aria-label="Next"
-      >
+      <a id="up" class="page-link" onclick="pagUp()" num="1" href="#" aria-label="Next">
         <span aria-hidden="true">&raquo;</span>
       </a>
     </div>
