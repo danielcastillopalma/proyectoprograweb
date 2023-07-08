@@ -51,5 +51,10 @@ class Producto(models.Model):
     def __str__(self):
         return str(self.nombre_producto) 
     
-
+class Boleta(models.Model):
+    num_boleta=models.AutoField(db_column="num_boleta",primary_key=True)
+    fecha_boleta=models.DateField(blank=False,null=False)
+    num_cliente= models.ForeignKey('Cliente',on_delete=models.CASCADE, db_column='rut')
+    monto_boleta=models.IntegerField(default=0,null=False)
+    activa=models.IntegerField()
  

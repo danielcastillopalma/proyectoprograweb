@@ -11,9 +11,13 @@
   <img src="{{ x.img_prod.url }}" class="card-img-top" alt="...">
   {%endif%}
   <div class="card-body">
-    <h5 class="card-title">{{x.nombre_producto}}</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
+    <h6 class="card-title">{{x.nombre_producto}}</h6>
+    <p class="card-title">{{x.cantidad_paquete}} Unidad/es</p>
+    {%if x.marca_producto%}
+    <h5 class="card-title">Marca: {{x.marca_producto}}</h5>
+    {%endif%}
+    <h4 class="card-text">${{x.valor_venta}}</h4>
+    <a href="#" class="btn btn-primary">Agregar  <i class="fa-solid fa-cart-shopping"></i> </a>
   </div>
 </div>
 {%endfor%}
