@@ -114,11 +114,20 @@
           class="btn-close"
           data-bs-dismiss="offcanvas"
           aria-label="Close"
-        ></button>
+        ></button> 
       </div>
       <div class="offcanvas-body">
-        <p>Aquí irá una imagen y descripción de los productos a comprar</p>
-        <button class="btn btn-primary">Boton</button>
+        {% for item in items %}
+        <div class="row">
+          {%if item.product.img_prod%}
+          <div class="col"><img src="{{cart.item.product.img_prod.url}}" alt=""></div>
+          {%endif%}
+          <div class="col"><p>{{item.quantity}}</p></div>
+      <div class="col"><p>${{item.product.valor_venta}}</p></div>
+         
+          
+        </div>
+        {%endfor%}
       </div>
     </div>
    

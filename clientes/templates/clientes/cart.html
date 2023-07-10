@@ -16,9 +16,11 @@
     <div class="item">
       <div class="iteminfo">
         <div class="p_img">
-          <img src="{{item.product.picture.url}}" alt="" />
+          {%if item.product.img_prod%}
+          <img src="{{item.product.img_prod.url}}" alt="" />
+          {%endif%}
         </div>
-        <p>{{item.product.name}}</p>
+        <p>{{item.product.nombre_producto}}</p>
       </div>
 
       <div class="name"><p>{{item.quantity}}</p></div>

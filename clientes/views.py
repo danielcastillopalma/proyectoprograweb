@@ -42,9 +42,12 @@ def repuestos(request):
     clientes = Cliente.objects.all()    
     usuario = request.session["usuario"]
     productos = Producto.objects.all()
+    cartitems = []
     if request.user.is_authenticated:
+        
         cart, created = Cart.objects.get_or_create(user=request.user, completed=False)
-        context = {"productos": productos,"usuario": usuario,'cart':cart} 
+        cartitems = cart.cartitems.all()
+        context = {"productos": productos,"usuario": usuario,'cart':cart,"items":cartitems} 
     else:
         context={"productos": productos,"usuario": usuario}
     return render(request, "clientes/repuestos.html", context)
