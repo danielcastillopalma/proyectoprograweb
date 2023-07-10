@@ -16,7 +16,10 @@ def index(request):
     usuario = request.session["usuario"]
     if request.user.is_authenticated:
         cart, created = Cart.objects.get_or_create(user=request.user, completed=False)
-    context = {"usuario": usuario,'cart':cart} 
+        context = {"usuario": usuario,'cart':cart} 
+    else:
+        context={"usuario": usuario}
+    
     return render(request, "clientes/index.html", context)
 
 
@@ -29,7 +32,9 @@ def customizacion(request):
     usuario = request.session["usuario"]
     if request.user.is_authenticated:
         cart, created = Cart.objects.get_or_create(user=request.user, completed=False)
-    context = {"usuario": usuario,'cart':cart} 
+        context = {"usuario": usuario,'cart':cart}
+    else:
+        context={"usuario": usuario} 
     return render(request, "clientes/customizacion.html", context)
 
 
@@ -39,7 +44,9 @@ def repuestos(request):
     productos = Producto.objects.all()
     if request.user.is_authenticated:
         cart, created = Cart.objects.get_or_create(user=request.user, completed=False)
-    context = {"productos": productos,"usuario": usuario,'cart':cart} 
+        context = {"productos": productos,"usuario": usuario,'cart':cart} 
+    else:
+        context={"productos": productos,"usuario": usuario}
     return render(request, "clientes/repuestos.html", context)
 
 
@@ -47,7 +54,9 @@ def servicios(request):
     usuario = request.session["usuario"]
     if request.user.is_authenticated:
         cart, created = Cart.objects.get_or_create(user=request.user, completed=False)
-    context = {"usuario": usuario,'cart':cart} 
+        context = {"usuario": usuario,'cart':cart} 
+    else:
+        context = {"usuario": usuario}
     return render(request, "clientes/servicios.html", context)
 
 
