@@ -5,19 +5,18 @@ from functools import wraps
 import django.views.static
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
-
+from django.http import JsonResponse
+import json
 
 # Create your views here.
-def sumarProdBoleta(request):
-        idProd = request.POST["idProdu"]
-        context = {}
-        return render(request, "clientes/index.html", context)
 
 
 def index(request):
     request.session["usuario"] = request.user.username
     usuario = request.session["usuario"]
-    context = {"usuario": usuario}
+    if request.user.is_authenticated:
+        cart, created = Cart.objects.get_or_create(user=request.user, completed=False)
+    context = {"usuario": usuario,'cart':cart} 
     return render(request, "clientes/index.html", context)
 
 
@@ -27,19 +26,28 @@ def login(request):
 
 
 def customizacion(request):
-    context = {}
+    usuario = request.session["usuario"]
+    if request.user.is_authenticated:
+        cart, created = Cart.objects.get_or_create(user=request.user, completed=False)
+    context = {"usuario": usuario,'cart':cart} 
     return render(request, "clientes/customizacion.html", context)
 
 
 def repuestos(request):
-    clientes = Cliente.objects.all()
+    clientes = Cliente.objects.all()    
+    usuario = request.session["usuario"]
     productos = Producto.objects.all()
-    context = {"productos": productos}
+    if request.user.is_authenticated:
+        cart, created = Cart.objects.get_or_create(user=request.user, completed=False)
+    context = {"productos": productos,"usuario": usuario,'cart':cart} 
     return render(request, "clientes/repuestos.html", context)
 
 
 def servicios(request):
-    context = {}
+    usuario = request.session["usuario"]
+    if request.user.is_authenticated:
+        cart, created = Cart.objects.get_or_create(user=request.user, completed=False)
+    context = {"usuario": usuario,'cart':cart} 
     return render(request, "clientes/servicios.html", context)
 
 
@@ -333,6 +341,37 @@ def productosUpdate(request):
         productos = Producto.objects.all()
         context = {"productos": productos}
         return render(request, "clientes/productos_list.html", context)
+
+
+def add_to_cart(request):
+    data = json.loads(request.body)
+    product_id = data["id"]
+    product = Producto.objects.get(id_producto=product_id)
+
+    if request.user.is_authenticated:
+        cart, created = Cart.objects.get_or_create(
+            user=request.user, completed=False)
+        cartitem, created = CartItem.objects.get_or_create(
+            cart=cart, product=product)
+        cartitem.quantity += 1
+        cartitem.save()
+
+        num_of_item = cart.num_of_items
+
+        print(cartitem)
+    return JsonResponse(num_of_item, safe=False)
+
+
+def cart(request):
+    cart = None
+    cartitems = []
+    
+    if request.user.is_authenticated:
+        cart, created = Cart.objects.get_or_create(user=request.user, completed=False)
+        cartitems = cart.cartitems.all()
+    
+    context = {"cart":cart, "items":cartitems}
+    return render(request, "clientes/cart.html", context)
 
 
 def no_cache_static(f):
