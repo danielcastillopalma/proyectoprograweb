@@ -362,7 +362,27 @@ def productosUpdate(request):
         context = {"productos": productos}
         return render(request, "clientes/productos_list.html", context)
 
+def remove_from_cart(request):
+    data = json.loads(request.body)
+    product_id = data["id"]
+    product = Producto.objects.get(id_producto=product_id)
 
+    if request.user.is_authenticated:
+        cart, created = Cart.objects.get_or_create(
+            user=request.user, completed=False)
+        cartitem, created = CartItem.objects.get_or_create(
+            cart=cart, product=product)
+        if cartitem.quantity>0:
+            cartitem.quantity =cartitem.quantity-1
+            cartitem.save()
+            quantity = cartitem.quantity
+        else:
+            cartitem.delete()
+            quantity=0
+        
+
+        
+    return JsonResponse(quantity, safe=False)
 def add_to_cart(request):
     data = json.loads(request.body)
     product_id = data["id"]

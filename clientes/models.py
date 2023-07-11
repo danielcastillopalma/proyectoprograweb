@@ -111,3 +111,4 @@ class CartItem(models.Model):
     def price(self):
         new_price = self.product.valor_venta * self.quantity
         return new_price
+   

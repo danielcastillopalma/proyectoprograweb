@@ -253,10 +253,37 @@ function addToCart(e) {
     body: JSON.stringify(data),
   })
     .then(res => res.json())
-    .then(data=>{
+    .then(data => {
       document.getElementById("num_of_items").innerHTML = data
       console.log(data)
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+}
+let btnos = document.querySelectorAll(".filaCarrito button");
+btnos.forEach((btn) => {
+  btn.addEventListener("click", removeFromCart);
+});
+
+function removeFromCart(e) {
+  let id_prod = e.target.value;
+  let url = "/clientes/remove_from_cart";
+  let data = { id: id_prod };
+  let idd="quantity"+id_prod
+  console.log(id_prod)
+  console.log(idd)
+  fetch(url, {
+    method: "POST",
+    headers: { "Content-Type": "application/json", "X-CSRFToken": csrftoken },
+    body: JSON.stringify(data),
   })
+    .then(res => res.json())
+    .then(data => {
+      document.getElementById("num_of_items").innerHTML = data
+      document.getElementById(idd).innerHTML = data
+      console.log(data)
+    })
     .catch((error) => {
       console.log(error);
     });
