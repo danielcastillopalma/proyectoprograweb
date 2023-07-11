@@ -35,6 +35,13 @@
     <div class="row h1tienda csecundario">
       <h1>PRODUCTOS DESTACADOS</h1>
     </div>
+    <form action="search" method="post">
+      {% csrf_token%}
+    <div class="row searcher">
+      <div class="col-9"><input type="text" name="searchfield"  placeholder="Buscar Producto"></div>
+      <div class="col-3"><button class="btn" type="submit" value="Input">Buscar</button></div>
+    </div>
+  </form>
     <!--
         slider productos principales
     -->

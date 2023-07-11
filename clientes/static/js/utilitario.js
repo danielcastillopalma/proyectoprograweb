@@ -9,6 +9,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
+
 function validarFormulario(evento) {
   evento.preventDefault();
 

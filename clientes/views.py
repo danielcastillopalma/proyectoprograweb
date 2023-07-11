@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from .models import *
 from datetime import datetime
 from functools import wraps
@@ -7,20 +7,58 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.http import JsonResponse
 import json
+from django.contrib import messages
 
-# Create your views here.
+
+def search(request):
+    if request.method != "POST":
+        usuario = request.session["usuario"]
+        productos_busqueda = Producto.objects.filter(
+            nombre_producto__contains='')
+        cartitems = []
+        if request.user.is_authenticated:
+
+            cart, created = Cart.objects.get_or_create(
+                user=request.user, completed=False)
+            cartitems = cart.cartitems.all()
+            context = {"productos": productos_busqueda,
+                       "usuario": usuario, 'cart': cart, "items": cartitems}
+        else:
+            context = {"productos": productos_busqueda, "usuario": usuario}
+        return render(request, "clientes/repuestos.html", context)
+    else:
+        usuario = request.session["usuario"]
+        cartitems = []
+        query = request.POST["searchfield"]
+        productos_busqueda = Producto.objects.filter(
+            nombre_producto__contains=query)
+        if request.user.is_authenticated:
+
+            cart, created = Cart.objects.get_or_create(
+                user=request.user, completed=False)
+            cartitems = cart.cartitems.all()
+            context = {"productos": productos_busqueda,
+                       "usuario": usuario, 'cart': cart, "items": cartitems}
+        else:
+            context = {"productos": productos_busqueda, "usuario": usuario}
+        return render(request, "clientes/repuestos.html", context)
 
 
 def index(request):
     request.session["usuario"] = request.user.username
     usuario = request.session["usuario"]
+    productos = Producto.objects.all()
     cartitems = []
     if request.user.is_authenticated:
-        cart, created = Cart.objects.get_or_create(user=request.user, completed=False)
-        context = {"usuario": usuario,'cart':cart,"items":cartitems} 
+
+        cart, created = Cart.objects.get_or_create(
+            user=request.user, completed=False)
+        cartitems = cart.cartitems.all()
+        context = {"productos": productos, "usuario": usuario,
+                   'cart': cart, "items": cartitems}
     else:
-        context={"usuario": usuario}
-    
+        context = {"usuario": usuario}
+
     return render(request, "clientes/index.html", context)
 
 
@@ -34,26 +72,30 @@ def customizacion(request):
     productos = Producto.objects.all()
     cartitems = []
     if request.user.is_authenticated:
-        
-        cart, created = Cart.objects.get_or_create(user=request.user, completed=False)
+
+        cart, created = Cart.objects.get_or_create(
+            user=request.user, completed=False)
         cartitems = cart.cartitems.all()
-        context = {"productos": productos,"usuario": usuario,'cart':cart,"items":cartitems} 
+        context = {"productos": productos, "usuario": usuario,
+                   'cart': cart, "items": cartitems}
     else:
-        context={"productos": productos,"usuario": usuario}
+        context = {"productos": productos, "usuario": usuario}
     return render(request, "clientes/customizacion.html", context)
 
 
-def repuestos(request):  
+def repuestos(request):
     usuario = request.session["usuario"]
     productos = Producto.objects.all()
     cartitems = []
     if request.user.is_authenticated:
-        
-        cart, created = Cart.objects.get_or_create(user=request.user, completed=False)
+
+        cart, created = Cart.objects.get_or_create(
+            user=request.user, completed=False)
         cartitems = cart.cartitems.all()
-        context = {"productos": productos,"usuario": usuario,'cart':cart,"items":cartitems} 
+        context = {"productos": productos, "usuario": usuario,
+                   'cart': cart, "items": cartitems}
     else:
-        context={"productos": productos,"usuario": usuario}
+        context = {"productos": productos, "usuario": usuario}
     return render(request, "clientes/repuestos.html", context)
 
 
@@ -62,12 +104,14 @@ def servicios(request):
     productos = Producto.objects.all()
     cartitems = []
     if request.user.is_authenticated:
-        
-        cart, created = Cart.objects.get_or_create(user=request.user, completed=False)
+
+        cart, created = Cart.objects.get_or_create(
+            user=request.user, completed=False)
         cartitems = cart.cartitems.all()
-        context = {"productos": productos,"usuario": usuario,'cart':cart,"items":cartitems} 
+        context = {"productos": productos, "usuario": usuario,
+                   'cart': cart, "items": cartitems}
     else:
-        context={"productos": productos,"usuario": usuario}
+        context = {"productos": productos, "usuario": usuario}
     return render(request, "clientes/servicios.html", context)
 
 
@@ -362,6 +406,8 @@ def productosUpdate(request):
         context = {"productos": productos}
         return render(request, "clientes/productos_list.html", context)
 
+
+@login_required
 def remove_from_cart(request):
     data = json.loads(request.body)
     product_id = data["id"]
@@ -372,17 +418,17 @@ def remove_from_cart(request):
             user=request.user, completed=False)
         cartitem, created = CartItem.objects.get_or_create(
             cart=cart, product=product)
-        if cartitem.quantity-1>0:
-            cartitem.quantity =cartitem.quantity-1
+        if cartitem.quantity-1 > 0:
+            cartitem.quantity = cartitem.quantity-1
             cartitem.save()
             quantity = cartitem.quantity
         else:
             cartitem.delete()
-            quantity=0
-        
-
-        
+            quantity = 0
     return JsonResponse(quantity, safe=False)
+
+
+@login_required
 def add_to_cart(request):
     data = json.loads(request.body)
     product_id = data["id"]
@@ -397,22 +443,30 @@ def add_to_cart(request):
         cartitem.save()
 
         num_of_item = cart.num_of_items
-        
+
         print(cartitem)
+    
     return JsonResponse(num_of_item, safe=False)
 
 
 def cart(request):
     cart = None
     cartitems = []
-    
+
     if request.user.is_authenticated:
-        cart, created = Cart.objects.get_or_create(user=request.user, completed=False)
+        cart, created = Cart.objects.get_or_create(
+            user=request.user, completed=False)
         cartitems = cart.cartitems.all()
-    
-    context = {"cart":cart, "items":cartitems}
+
+    context = {"cart": cart, "items": cartitems}
     return render(request, "clientes/cart.html", context)
 
+def confirm_payment(request, pk):
+    cart = Cart.objects.get(id=pk)
+    cart.completed = True
+    cart.save()
+    messages.success(request, "Compra Realizada con éxito")    
+    return redirect("index")
 
 def no_cache_static(f):
     @wraps(f)

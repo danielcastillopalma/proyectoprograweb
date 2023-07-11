@@ -294,6 +294,23 @@ PALETA DE COLORES
 .loginForm ul {
   color: red;
 }
+.searcher button:hover{
+  background-color: #00bbc9;
+}
+.searcher button{
+  margin-top:4%;
+  margin-bottom:4%;
+  padding: 3%;
+  width: 50%;
+  background-color: #00747c;
+
+}
+.searcher input{
+  padding: 1%;
+  width: 70%;
+  margin-left: 30%;
+  margin-top: 1%;
+}
 /* Dropdown Button */
 .dropbtn {
   background-color: #00747c;
@@ -363,7 +380,19 @@ nav ul li {
   line-height: 80px;
   margin: 0 5px;
 }
-
+.comprar button:hover{
+  background-color: #00bbc9;
+}
+.comprar button{
+  margin-left: 80%;
+  width: 14%;
+  background-color: #00747c;
+  margin-bottom: 1%;
+}
+.totalCompra{
+  width: auto;  
+  margin-left: 80%;
+}
 nav ul li a {
   color: #fff;
   font-size: 18px;
@@ -412,7 +441,7 @@ CONFIGURACIONES MEDIA QUERY
     margin-bottom: 5%;
     margin-top: 5%;
   }
-
+  
   .h1tienda {
     margin-top: 4%;
     padding: 1.4%;

@@ -4,13 +4,6 @@
   <div class="row h1tienda csecundario">
     <h1>Repuestos</h1>
   </div>
-  <form action="search" method="post">
-    {% csrf_token%}
-  <div class="row searcher">
-    <div class="col-9"><input type="text" name="searchfield"  placeholder="Buscar Producto"></div>
-    <div class="col-3"><button class="btn" type="submit" value="Input">Buscar</button></div>
-  </div>
-</form>
 
   <div class="productosRepuestos row" id="contenedorProdRep">
     {% if productos %}
@@ -18,8 +11,6 @@
         <div class="card repuestosContainer" style="width: 18rem">
           {% if x.img_prod %}
             <img src="{{ x.img_prod.url }}" class="card-img-top" alt="..." />
-          {%else%}
-            <img src="{%static 'img/imgnotfound.png'%}" class="card-img-top" alt="..." />
           {% endif %}
           <div class="card-body">
             <h6 class="card-title">{{ x.nombre_producto }}</h6>

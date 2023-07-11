@@ -58,7 +58,7 @@
           <div>
             <a class="dropbtn">{{user.get_short_name}} <i class="fa fa-user-circle" aria-hidden="true"></i></a>
             <div class="dropdown-content">
-              <a href="#">Perfil</a>
+          
               <a href="{%url 'logout'%}">Cerrar Sesion</a>
               {%if user.is_superuser%}
               <a href="{%url 'menu'%}">Administración</a>
@@ -136,6 +136,7 @@
       </div>
       {%endfor%}
       <h3>Grand-Total: ${{cart.total_price}}</h3>
+      <a href="{%url 'cart'%}">Completa tu compra</a>
       {%else%}
       <h3>Tu carro está vacio, agrega algunos productos</h3>
       <a href="{%url 'repuestos'%}">Agrega productos aquí</a>
@@ -144,6 +145,13 @@
     </div>
 
   </div>
+  {%if messages%}
+<ul class="messages">
+{%for message in messages%}
+<div class="alert {{ message.tags }} alert-dismissible fade show" role="alert">{{message}}</div>
+{%endfor%}
+</ul>
+{%endif%}
 
 
   {%block content%}{%endblock%}
@@ -196,12 +204,13 @@
         </div>
       </div>
       <div class="col-xs-12 cprimario p-1 ctitulo" id="copyright">
-  
+
         <p>Todos los derechos reservados</p>
 
       </div>
     </div>
   </footer>
+  <script src="https://checkout.flutterwave.com/v3.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
   <script src="https://code.jquery.com/jquery-3.6.4.min.js"
     integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>

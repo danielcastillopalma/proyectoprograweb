@@ -7,6 +7,9 @@ urlpatterns = [
     path("cart", views.cart, name="cart"),
     path("add_to_cart", views.add_to_cart, name="add"),
     path("remove_from_cart", views.remove_from_cart, name="remove"),
+    path("confirm_payment/<str:pk>", views.confirm_payment, name="confirm_payment"),
+    
+    path("search", views.search, name="search"),
 
     path('index', views.index, name='index'),
     path('customizacion', views.customizacion, name='customizacion'),
