@@ -81,7 +81,6 @@ CONFIGURACIÓN DE CLASES
   display: flex;
   flex-direction: column;
   align-items: center;
- 
 }
 
 .swiper-slide {
@@ -209,13 +208,27 @@ CONFIGURACIÓN DE CLASES
   justify-content: center;
   align-items: center;
 }
-.formEditProd{
+.formEditProd {
   padding: 0% 7% 5% 7%;
 }
-.formEditProd input{
+.formEditProd input {
   padding: 1%;
   width: 100%;
   margin-bottom: 1%;
+}
+.filaCarrito {
+  border-style: initial;
+  border-color: black;
+  text-align: justify;
+ 
+}
+.filaCarrito .col-5 {  
+  white-space: normal;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.filaCarrito img {
+  width: 50px;
 }
 .register {
   justify-content: center;
@@ -224,7 +237,7 @@ CONFIGURACIÓN DE CLASES
   align-items: center;
   height: 100%;
 }
-.repcontainer{
+.repcontainer {
   justify-content: center;
   display: flex;
   flex-direction: column;
@@ -300,7 +313,6 @@ PALETA DE COLORES
   font-size: 18px;
   border-radius: 0;
 }
-
 
 /*
 CONFIGURACIÓN ID
@@ -498,7 +510,7 @@ CONFIGURACIONES MEDIA QUERY
   color: black;
   text-decoration: none;
   display: block;
-  margin:0;
+  margin: 0;
   padding: 0;
   font-size: 90%;
   text-align: center;

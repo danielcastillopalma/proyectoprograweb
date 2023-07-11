@@ -109,5 +109,5 @@ class CartItem(models.Model):
 
     @property
     def price(self):
-        new_price = self.product.price * self.quantity
+        new_price = self.product.valor_venta * self.quantity
         return new_price

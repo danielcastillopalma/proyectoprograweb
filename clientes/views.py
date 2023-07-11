@@ -14,9 +14,10 @@ import json
 def index(request):
     request.session["usuario"] = request.user.username
     usuario = request.session["usuario"]
+    cartitems = []
     if request.user.is_authenticated:
         cart, created = Cart.objects.get_or_create(user=request.user, completed=False)
-        context = {"usuario": usuario,'cart':cart} 
+        context = {"usuario": usuario,'cart':cart,"items":cartitems} 
     else:
         context={"usuario": usuario}
     
@@ -30,16 +31,19 @@ def login(request):
 
 def customizacion(request):
     usuario = request.session["usuario"]
+    productos = Producto.objects.all()
+    cartitems = []
     if request.user.is_authenticated:
+        
         cart, created = Cart.objects.get_or_create(user=request.user, completed=False)
-        context = {"usuario": usuario,'cart':cart}
+        cartitems = cart.cartitems.all()
+        context = {"productos": productos,"usuario": usuario,'cart':cart,"items":cartitems} 
     else:
-        context={"usuario": usuario} 
+        context={"productos": productos,"usuario": usuario}
     return render(request, "clientes/customizacion.html", context)
 
 
-def repuestos(request):
-    clientes = Cliente.objects.all()    
+def repuestos(request):  
     usuario = request.session["usuario"]
     productos = Producto.objects.all()
     cartitems = []
@@ -55,11 +59,15 @@ def repuestos(request):
 
 def servicios(request):
     usuario = request.session["usuario"]
+    productos = Producto.objects.all()
+    cartitems = []
     if request.user.is_authenticated:
+        
         cart, created = Cart.objects.get_or_create(user=request.user, completed=False)
-        context = {"usuario": usuario,'cart':cart} 
+        cartitems = cart.cartitems.all()
+        context = {"productos": productos,"usuario": usuario,'cart':cart,"items":cartitems} 
     else:
-        context = {"usuario": usuario}
+        context={"productos": productos,"usuario": usuario}
     return render(request, "clientes/servicios.html", context)
 
 
