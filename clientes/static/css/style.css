@@ -42,18 +42,6 @@ p {
 /*
 CONFIGURACIÓN DE CLASES
 */
-.btnMas {
-  position: absolute;
-  bottom: 5px;
-  right: 5px;
-  border-radius: 50%;
-  width: 40px;
-  height: 40px;
-  border-color: #00747c;
-}
-.btnMas:hover {
-  background-color: #00747c;
-}
 .carta-serv {
   height: 90vh;
   width: 98vh;

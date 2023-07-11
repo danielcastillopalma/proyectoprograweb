@@ -372,7 +372,7 @@ def remove_from_cart(request):
             user=request.user, completed=False)
         cartitem, created = CartItem.objects.get_or_create(
             cart=cart, product=product)
-        if cartitem.quantity>0:
+        if cartitem.quantity-1>0:
             cartitem.quantity =cartitem.quantity-1
             cartitem.save()
             quantity = cartitem.quantity
@@ -397,7 +397,7 @@ def add_to_cart(request):
         cartitem.save()
 
         num_of_item = cart.num_of_items
-
+        
         print(cartitem)
     return JsonResponse(num_of_item, safe=False)
 

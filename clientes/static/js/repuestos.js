@@ -255,11 +255,13 @@ function addToCart(e) {
     .then(res => res.json())
     .then(data => {
       document.getElementById("num_of_items").innerHTML = data
+      location.reload();
       console.log(data)
     })
     .catch((error) => {
       console.log(error);
     });
+    
 }
 let btnos = document.querySelectorAll(".filaCarrito button");
 btnos.forEach((btn) => {
@@ -281,6 +283,7 @@ function removeFromCart(e) {
     .then(res => res.json())
     .then(data => {
       document.getElementById("num_of_items").innerHTML = data
+      location.reload();
       document.getElementById(idd).innerHTML = data
       console.log(data)
     })
